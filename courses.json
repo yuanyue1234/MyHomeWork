@@ -1,0 +1,99 @@
+{
+    "jquery": {
+        "id": "jquery",
+        "title": "jQuery 课程",
+        "order": 1,
+        "dates": [
+            {
+                "date": "0830",
+                "description": "第一节课"
+            },
+            {
+                "date": "0906",
+                "description": "第二节课"
+            },
+            {
+                "date": "0913",
+                "description": "第三节课"
+            },
+            {
+                "date": "0920",
+                "description": "第四节课"
+            }
+        ]
+    },
+    "bootstrap": {
+        "id": "bootstrap",
+        "title": "Bootstrap 课程",
+        "order": 2,
+        "dates": [
+            {
+                "date": "0903",
+                "description": "Bootstrap 课程 1"
+            },
+            {
+                "date": "0910",
+                "description": "Bootstrap 课程 2"
+            },
+            {
+                "date": "0924",
+                "description": "Bootstrap 课程 3"
+            },
+            {
+                "date": "0929",
+                "description": "Bootstrap 课程 4"
+            }
+        ]
+    },
+    "test": {
+        "id": "test",
+        "title": "测试课程",
+        "order": 3,
+        "dates": [
+            {
+                "date": "1001",
+                "description": "测试课程 1"
+            },
+            {
+                "date": "1008",
+                "description": "测试课程 2"
+            },
+            {
+                "date": "1015",
+                "description": "测试课程 3"
+            },
+            {
+                "date": "1008",
+                "description": "测试课程 2"
+            },
+            {
+                "date": "1015",
+                "description": "测试课程 3"
+            },
+            {
+                "date": "1008",
+                "description": "测试课程 2"
+            },
+            {
+                "date": "1015",
+                "description": "测试课程 3"
+            },
+            {
+                "date": "1008",
+                "description": "测试课程 2"
+            },
+            {
+                "date": "1015",
+                "description": "测试课程 3"
+            },
+            {
+                "date": "1008",
+                "description": "测试课程 2"
+            },
+            {
+                "date": "1015",
+                "description": "测试课程 3"
+            }
+        ]
+    }
+}

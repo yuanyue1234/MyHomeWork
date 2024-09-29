@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤选择器</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        .main {
+            margin: 10px auto;
+            background-color: #F2E0DD;
+            border: 1px solid red;
+            height: 550px;
+            width: 500px;
+            border-radius: 12px;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        .main li {
+            padding: 8px;
+            border-radius: 0px 8px 8px 0px;
+            margin-bottom: 2px;
+            list-style: none
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <h3>1.基本过滤选择器的使用</h3>
+        <ul style="width: 200px;">
+            <li>《一剪梅·红藕香残玉..》</li>
+            <li>红藕香残玉簟秋，</li>
+            <li>轻解罗裳，独上兰舟。</li>
+            <li>云中谁寄锦书来？</li>
+            <li>雁字回时，月满西楼。</li>
+            <li>花自飘零水自流，</li>
+            <li>一种相思，两处闲愁。</li>
+            <li>此情无计可消除，</li>
+            <li>才下眉头，却上心头。</li>
+            <li>李清照</li>
+        </ul>
+    </div>
+    <div class="main" style="height: 150px;">
+        <h3>2.过滤选择器的使用</h3>
+        <input type="text" placeholder="显示的input元素" value="显示的input元素">
+        <input type="text" placeholder="不显示的input元素" value="不显示的input元素" style="display: none;">
+        <input type="hidden" value="隐藏的input元素">
+        <button name="显示内容">点击显示内容</button>
+
+    </div>
+    <div class="main" style="height:350px;">
+        <h3> 3.内容选择器的使用</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="11%" height="27" align="center">编号</td>
+                    <td width="14%" align="center">祝福对象</td>
+                    <td width="12%" align="center">祝福者</td>
+                    <td width="33%" align="center">字条内容</td>
+                    <td width="30%" align="center">发送时间</td>
+                </tr>
+                <tr>
+                    <td height="27">1</td>
+                    <td></td>
+                    <td>妈妈</td>
+                    <td>愿你健康快乐的成长！</td>
+                    <td>2014-08-15 13:06:06</td>
+                </tr>
+                <tr>
+                    <td height="27">2</td>
+                    <td>张三</td>
+                    <td>妈妈</td>
+                    <td>愿你健康快乐的成长！</td>
+                    <td>2014-08-15 13:06:06</td>
+                </tr>
+                <tr>
+                    <td height="27">3</td>
+                    <td>李四</td>
+                    <td>妈妈</td>
+                    <td>愿你健康快乐的成长！</td>
+                    <td>2014-08-15 13:06:06</td>
+                </tr>
+                <tr>
+                    <td height="27">4</td>
+                    <td>王五</td>
+                    <td>妈妈</td>
+                    <td>愿你健康快乐的成长！</td>
+                    <td>2014-08-15 13:06:06</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="main" style="height: 200px;">
+        <h3>4.属性过滤选择器的使用</h3>
+        <div class="div1" title="div1">div1</div>
+        <div class="div1" title="div2">div2</div>
+        <div title="标题">标题</div>
+    </div>
+
+</body>
+<script>
+
+    $(function () {
+        // 1. 基本选择器
+        // even 选择偶数 odd 选择奇
+        $('li:even').css('background-color', '#F9E9CC')
+        $('li:odd').css('background-color', '#D7FAE1')
+        $('li:first').css('font-weight', 'bold')
+        $('li:last').css('float', 'right')
+
+        // 2. 可见性过滤选择器
+        var v1 = $('input:visible').val() // 获取文本框的值
+        var v2 = $('input:hidden:eq(1)').val()
+        var v3 = $('input:hidden:eq(2)').val()
+        $('button[name=显示内容]').click(selector_click)
+        selector_click()
+        function selector_click() {
+            alert(v1 + v2 + v3);
+        }
+        // 3. 内容过滤选择器
+        $("td:parent").css("background-color", "#D7FAE1");
+        $("td:empty").html('暂无内容');
+        $("td:contains('张三')").css("color", "chocolate");
+        // 4. 属性过滤选择器
+        // 1. 匹配所有具有 title 属性的 div 元素
+        $("div[title]").css("background-color", "#D7FAE1");
+        // 2. 匹配 title 属性值为 "div1" 的 div 元素
+        $("div[title='div1']").css("font-weight", "bold");
+        // 3. 匹配 title 属性值以 "div" 开头的 div 元素
+        $("div[title^='div']").css("color", "green");
+        // 4. 匹配 title 属性值包含 "标题" 的元素
+        $("[title*=标题]").css("text-decoration", "underline");
+        $('[class=div1][title=div2]').css('background-color', '#F9E9CC')
+    })
+
+
+
+
+</script>
+
+
+</html>

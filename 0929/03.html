@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用swipe插件来制作轮播图效果</title>
+     <link rel="stylesheet" href="css/swiper.min.css" />
+	
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+        .bannerImg {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bannerImg>li {
+            width: 100%;
+            float: left;
+            position: relative;
+        }
+
+        .bannerImg>li img {
+            width: 100%;
+            display: block;
+        }
+    </style> 
+
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="bannerImg clearfix">
+            <li>
+                <a href="javascript:;">
+                    <img src="img/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/5.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="img/6.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <input type="button" value="上一张" id="prev">
+    <input type="button" value="下一张" id="next">
+    <script src="js/swipe.js"></script>
+    <script>
+        window.mySwipe = Swipe(document.querySelector('.banner'), {
+            auto: 2000
+        });
+        document.getElementById('prev').onclick = function () {
+            window.mySwipe.prev();
+        };
+        document.getElementById('next').onclick = function () {
+            window.mySwipe.next();
+        };
+    </script>
+</body>
+
+</html>

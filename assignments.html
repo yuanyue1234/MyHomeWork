@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业展示</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 定义全局变量 */
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #212B36;
+            --header-bg: linear-gradient(135deg, #0062E6, #33AEFF);
+            --header-text: white;
+            --btn-bg: #5C6AC4;
+            --btn-hover: #4753a5;
+            --card-bg: #ffffff;
+        }
+
+        /* 页面基本样式 */
+        .assignments-page body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* 头部样式 */
+        .assignments-page .header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 10px 0;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .assignments-page .header h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* 侧边栏样式 */
+        .menu-buttons {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            display: flex;
+            z-index: 1002;
+        }
+
+        .menu-icon, .menu-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--btn-bg);
+            color: var(--header-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+
+        .menu-icon:hover, .menu-button:hover {
+            background-color: var(--btn-hover);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* 添加这个新样式 */
+        .menu-button i {
+            color: var(--header-text);
+        }
+
+        .menu-icon.active {
+            left: 260px;
+        }
+
+        .menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: var(--card-bg);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu-buttons {
+            transition: all 0.3s ease;
+        }
+
+        .menu-buttons.active {
+            left: 270px;
+        }
+/* 菜单样式 */
+        .menu-icon.active {
+            left: 260px;
+        }
+
+        .menu {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(135deg, #0062E6, #33AEFF);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px; /* 减少底部边距 */
+        }
+
+        .menu-item {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 0 solid transparent;
+        }
+
+        .menu-item:hover {
+            border-left: 5px solid var(--header-text);
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-item span {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+
+        .menu-item:hover::before {
+            left: 0;
+        }
+
+        .menu-item:hover span {
+            transform: translateX(10px);
+        }
+
+        .apply-order-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* 遮罩层样式 */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+        /* 内容区域样式 */
+        .assignments-page #assignment-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 页脚样式 */
+        .assignments-page .footer {
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 20px;
+            margin: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: var(--header-bg);
+            color: var(--header-text);
+        }
+
+        .footer a {
+            color: var(--header-text);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-icon {
+            font-size: 24px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* 添加左右导航按钮样式 */
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--header-text);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: var(--btn-bg);
+            opacity: 0.9;
+        }
+
+        .nav-button:hover {
+            background-color: var(--btn-hover);
+            opacity: 1;
+        }
+
+        .nav-button:focus {
+            outline: none;
+        }
+
+        .nav-button.prev {
+            left: 80px;
+        }
+
+        .nav-button.next {
+            right: 80px;
+        }
+
+        /* 添加滑动效果 */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        /* 错误提示样式 */
+        #error-message {
+            display: none;
+            background-color: #ffdddd;
+            color: #d8000c;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 6px solid #f44336;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #error-message h4 {
+            margin-top: 0;
+            color: #d8000c;
+        }
+
+        #error-details {
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        /* 修改内容区域样式 */
+        #content-section {
+            position: relative;
+            height: 600px; /* 设置一个固定高度，或者使用 vh 单位 */
+            margin-top: 20px;
+        }
+
+        /* 修改 iframe 样式 */
+        .assignments-page #assignment-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 修改错误提示样式 */
+        #error-message {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffdddd;
+            color: #d8000c;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 6px solid #f44336;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body class="assignments-page">
+    <!-- 菜单图标和右侧按钮 -->
+    <div class="menu-buttons">
+        <div class="menu-icon" id="menuIcon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <a id="openInNewTab" class="menu-button" title="在新页面打开">
+            <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="index.html" class="menu-button" title="返回主页">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+
+    <!-- 菜单 -->
+    <div class="menu" id="assignment-container">
+        <!-- 动态加载作业按钮 -->
+    </div>
+
+    <!-- 添加遮罩层 -->
+    <div class="overlay"></div>
+
+    <!-- 页面头部 -->
+    <div class="header">
+        <h2 id="page-title">我的作业展示</h2>
+    </div>
+
+    <!-- 内容区域 -->
+    <div id="content-section" class="container">
+        <!-- 错误提示区域 -->
+        <div id="error-message">
+            <h4>加载失败</h4>
+            <p id="error-text"></p>
+            <div id="error-details"></div>
+        </div>
+        <!-- iframe 区域 -->
+        <iframe id="assignment-frame" src="about:blank"></iframe>
+    </div>
+
+    <!-- 添加左右导航按钮 -->
+    <button class="nav-button prev" id="prevButton"><i class="fas fa-chevron-left"></i></button>
+    <button class="nav-button next" id="nextButton"><i class="fas fa-chevron-right"></i></button>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>&copy; 2023 软件大专2306_35袁越 | 
+            <a href="https://asunny.top/" target="_blank">
+                个人网站 <i class="fas fa-external-link-alt footer-icon"></i>
+            </a>
+        </p>
+    </div>
+
+    <!-- 替换jQuery CDN为本地文件 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script>
+        // 常量定义
+        const SELECTORS = {
+            menuIcon: '#menuIcon',
+            menu: '.menu',
+            menuButtons: '.menu-buttons',
+            overlay: '.overlay',
+            assignmentContainer: '#assignment-container',
+            assignmentFrame: '#assignment-frame',
+            errorMessage: '#error-message',
+            errorText: '#error-text',
+            errorDetails: '#error-details',
+            pageTitle: '#page-title',
+            prevButton: '#prevButton',
+            nextButton: '#nextButton',
+            openInNewTab: '#openInNewTab'
+        };
+
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedDate = urlParams.get('date');
+        let currentFile = `${selectedDate}/01.html`;
+        let currentAssignmentIndex = 0;
+
+        // 加载作业内容函数
+        const loadAssignment = (file) => {
+            const iframe = document.querySelector(SELECTORS.assignmentFrame);
+            const errorMessage = document.querySelector(SELECTORS.errorMessage);
+            const errorText = document.querySelector(SELECTORS.errorText);
+            const errorDetails = document.querySelector(SELECTORS.errorDetails);
+            const pageTitle = document.querySelector(SELECTORS.pageTitle);
+
+            iframe.style.opacity = '0';
+            iframe.style.transition = 'opacity 0.3s ease';
+
+            iframe.onload = () => {
+                try {
+                    const iframeContent = iframe.contentWindow.document.body.innerHTML;
+                    if (iframeContent.includes("Cannot GET")) {
+                        throw new Error("Cannot GET");
+                    }
+                    errorMessage.style.display = 'none';
+                    iframe.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        iframe.style.opacity = '1';
+                    });
+                } catch (error) {
+                    showError(file, error.message);
+                }
+            };
+
+            iframe.onerror = () => showError(file);
+
+            iframe.src = file;
+            pageTitle.textContent = `作业展示 - ${file}`;
+        };
+
+        // 显示错误信息
+        const showError = (file, errorMessage = '') => {
+            const errorText = document.querySelector(SELECTORS.errorText);
+            const errorDetails = document.querySelector(SELECTORS.errorDetails);
+            const errorMessageElement = document.querySelector(SELECTORS.errorMessage);
+            const iframe = document.querySelector(SELECTORS.assignmentFrame);
+
+            errorText.textContent = `无法加载文件: ${file}`;
+            errorDetails.textContent = `错误信息: ${errorMessage}\n请检查文件路径是否正确，以及文件是否存在。\n文件路径: ${file}`;
+            errorMessageElement.style.display = 'block';
+            iframe.style.display = 'none';
+        };
+
+
+        // 检查文件是否存在
+        const checkFileExists = async (url) => {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        };
+
+        // 获取实际作业列表
+        const getActualAssignments = async (date) => {
+            const possibleFiles = ['01.html', '02.html', '03.html', 'dome3.html', 'demo2.html', '0.html', 'demo1.html'];
+            const assignments = [];
+
+            for (const file of possibleFiles) {
+                const fileUrl = `${date}/${file}`;
+                if (await checkFileExists(fileUrl)) {
+                    assignments.push(fileUrl);
+                }
+            }
+            return assignments;
+        };
+
+        // 创建作业按钮
+        const createAssignmentButtons = async () => {
+            const assignments = await getActualAssignments(selectedDate);
+            const assignmentContainer = document.querySelector(SELECTORS.assignmentContainer);
+
+            assignments.forEach((file, index) => {
+                const assignmentItem = document.createElement('a');
+                assignmentItem.className = 'menu-item';
+                assignmentItem.href = '#';
+                assignmentItem.innerHTML = `<span>作业 ${index + 1}</span>`;
+                assignmentItem.dataset.file = file;
+
+                assignmentItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateAssignment(index);
+                    toggleMenu();
+                });
+
+                assignmentContainer.appendChild(assignmentItem);
+            });
+
+            if (assignments.length > 0) {
+                loadAssignment(assignments[0]);
+                document.querySelector('.menu-item').classList.add('active');
+            } else {
+                showError(`${selectedDate}/01.html`, '该日期没有可用的作业');
+            }
+        };
+
+        // 更新当前作业
+        const updateAssignment = (index) => {
+            const assignmentItems = document.querySelectorAll('.menu-item');
+            if (index >= 0 && index < assignmentItems.length) {
+                currentAssignmentIndex = index;
+                const targetItem = assignmentItems[index];
+                currentFile = targetItem.dataset.file;
+                loadAssignment(currentFile);
+                assignmentItems.forEach(btn => btn.classList.remove('active'));
+                targetItem.classList.add('active');
+                window.history.pushState({}, '', `?date=${selectedDate}&assignment=${index + 1}`);
+            }
+        };
+
+        // 切换菜单显示状态
+        const toggleMenu = () => {
+            const menu = document.querySelector(SELECTORS.menu);
+            const menuButtons = document.querySelector(SELECTORS.menuButtons);
+            const menuIcon = document.querySelector(SELECTORS.menuIcon);
+            const overlay = document.querySelector(SELECTORS.overlay);
+
+            menu.classList.toggle('active');
+            menuButtons.classList.toggle('active');
+            overlay.style.display = menu.classList.contains('active') ? 'block' : 'none';
+            menuIcon.innerHTML = menu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        };
+
+        // 添加事件监听器
+        const addEventListeners = () => {
+            const menuIcon = document.querySelector(SELECTORS.menuIcon);
+            const overlay = document.querySelector(SELECTORS.overlay);
+            const prevButton = document.querySelector(SELECTORS.prevButton);
+            const nextButton = document.querySelector(SELECTORS.nextButton);
+            const openInNewTab = document.querySelector(SELECTORS.openInNewTab);
+
+            menuIcon.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            prevButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (currentAssignmentIndex > 0) {
+                    updateAssignment(currentAssignmentIndex - 1);
+                }
+            });
+
+            nextButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const assignmentCount = document.querySelectorAll('.menu-item').length;
+                if (currentAssignmentIndex < assignmentCount - 1) {
+                    updateAssignment(currentAssignmentIndex + 1);
+                }
+            });
+
+            openInNewTab.addEventListener('click', () => {
+                window.open(currentFile, '_blank');
+            });
+        };
+
+        // 初始化函数
+        const init = () => {
+            createAssignmentButtons();
+            addEventListeners();
+        };
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

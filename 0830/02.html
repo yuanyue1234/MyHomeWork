@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 将本地jQuery引用改为CDN -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+		<script>
+			$(function(){
+				//1.获取第一个按钮，设置单击时隐藏图片
+				$("input").eq(0).click(function(){
+					$('#tp').hide();
+				})
+				//2.获取第二个按钮，设置单击时显示图片
+				$("input").eq(1).click(function(){
+					$('#tp').show();
+				})
+				//3.获取第三个按钮，设置单击时切换图片的隐藏与显示
+				$("input").eq(2).click(function(){
+					$('#tp').toggle();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<h2>软件大专2306-35_袁越</h2>
+		<input type="submit" value="隐藏"/>
+		<input type="submit" value="显示"/>
+		<input type="submit" value="切换"/><br />
+		<img src="img/test.jpg" id="tp"/>
+		
+	</body>
+</html>

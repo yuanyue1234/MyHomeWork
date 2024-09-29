@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    // 使用 jQuery 获取元素
+    $('.box').on('touchstart', function() {
+        console.log('触摸了');
+    });
+    $('.box').on('touchmove', function() {
+        console.log('移动了');
+    });
+    $('.box').on('touchend', function() {
+        console.log('结束了');
+    })
+</script>
+</html>

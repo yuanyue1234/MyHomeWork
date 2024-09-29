@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.bj .tp {
+				padding-left: 300px;
+				float: left;
+			}
+
+			.word {
+				position: absolute;
+				left: 580px;
+			}
+
+			.jdjg p {
+				display: inline;
+			}
+
+			dd {
+				display: none;
+			}
+		</style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+		<script>
+			$(function() {
+				$(".book").css("font-weight", "bold");
+				$(".price1").css({
+					"font-size": "24px",
+					"font-weight": "bold"
+				});
+				$(".price2").css("color", "#ccc");
+				$(".dl span,#lj span").css({
+					"color": "#000",
+					"line-height": "28px"
+				});
+				$("dt").click(function() {
+					if ($("dd").css("display") == "none") {
+						$("dd").css("display", "block");
+					} else {
+						$("dd").css("display", "none");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+			<div class="bj">
+			<div class="tp">
+				<img src="img/store.jpg" alt="" />
+			</div>
+			<div class="word">
+				<p class="book">
+					岛上书店【荐书联盟推荐】[The Storied Life of A.J.Fikry]
+				</p>
+				<p class="ziying">
+					自营图书几十万畅销品种阶梯满减，抽奖赢魅蓝note3、JDRead阅读器！
+				</p>
+				<p>
+					[美]加·泽文（Gabrielle Zevin）著；孙仲旭，李玉瑶 译
+				</p>
+				<p class="jdjg">
+					京东价：<span class="price1">￥24.10</span>[6.9折]
+					<span class="price2">[定价：￥35.00]</span>
+					<span class="price1">（降价通知）</span>
+				</p>
+				<p>
+					促销信息：手机专享价 ￥9.90
+				</p>
+				<dl>
+					<dt>以下促销可在购物车自选其一</dt>
+					<dd>
+						<span>加价购</span>
+						满99.00元另加6.18元即可在购物车换购热销商品
+					</dd>
+					<dd>
+						<span>满减</span>
+						满100.00减20.00，满200.00减60.00，满300.00减100.00
+					</dd>
+				</dl>
+				<p id="lj">领 券：
+					<span>105-6</span>
+					<span>200-16</span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

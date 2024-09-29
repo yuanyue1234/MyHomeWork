@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图的制作</title>
+		
+	</head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<link rel="stylesheet" href="base.css" />
+	<style>
+		.banner{
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+		}
+		.bannerImg{
+			width: 1000%;
+			position: relative;
+		}
+		/* 写大于号只对儿子起作用，如果不写，写的空格 再跟的li,则作用儿子孙子 ……*/
+		.bannerImg>li{
+			width: 10%;
+			float: left;
+		}
+		.bannerImg>li img{
+			width: 100%;
+			display: block;
+		}
+	</style>
+	<body>
+		<div class="banner">
+			<ul class="bannerImg">
+				<li>
+					<a href="javascript:;">
+						<img src=img/original_1727141268913_9b0241a676653e50a2f3c963a4e7eda2.jpg" alt="" />
+					</a >
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/original_1727141268919_b26baddc183d149499bc7accb596ea5e.jpg" alt="" />
+					</a >
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/original_1727141268923_4449b1dbc01f2c7a1f6c305ef8ac62c8.jpg" alt="" />
+					</a >
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/original_1727141269656_8e917662927a7f5d54ae4212492f7981.jpg" alt="" />
+					</a >
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/original_1727141269668_e04ddd05bd0534370c21c78d97b54dbf.jpg" alt="" />
+					</a >
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/original_1727141269840_44ac156693f7ec0ed564e620d65e5ff4.jpg" alt="" />
+					</a >
+				</li>
+			</ul>
+		</div>
+	</body>
+    <script>
+        //1.获取div-banner
+        let banner = document.querySelector('.banner');
+        console.log(banner);
+        //2.获取ul
+        let imgBox = document.querySelector('.bannerImg');
+        console.log(imgBox);
+        //3.获取所有的li
+        let lis = document.querySelectorAll('.bannerImg li');
+        //4.计算所有的li元素的个数
+        let count = lis.length;
+        //5.获取div的宽度--视口的宽度
+        let bannerWidth = banner.offsetWidth;
+        //6.计算出ul的实际宽度
+        imgBox.style.width = bannerWidth * count + 'px';
+        //7.给所有的li元素一个宽度
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].style.width = bannerWidth + 'px';
+        }
+        index = 0;
+        //8.设置3个全局变量
+        let startX, moveX, distanceX;
+        
+        //给ul绑定触摸事件
+        imgBox.addEventListener('touchstart', function (e) {
+            startX = e.targetTouches[0].clientX;
+            console.log(startX);
+            imgBox.style.transition = 'none'; // 滑动时禁用过渡效果
+        });
+        
+        imgBox.addEventListener('touchmove', function (e) {
+            moveX = e.targetTouches[0].clientX;
+            distanceX = moveX - startX;
+            console.log(distanceX);
+            imgBox.style.transform = `translateX(-${index * bannerWidth + distanceX}px)`;
+        });
+        
+        imgBox.addEventListener('touchend', function () {
+            let moveDistance = Math.abs(distanceX);
+            imgBox.style.transition = 'transform 0.3s ease-in-out'; // 滑动结束后启用过渡效果
+            if (moveDistance < 50) {
+                // 滑动距离小于50px，视为无效滑动，返回原位
+                imgBox.style.transform = `translateX(-${index * bannerWidth}px)`;
+            } else {
+                // 滑动距离大于50px，根据滑动方向切换图片
+                if (distanceX > 0) {
+                    // 左滑
+                    if (index < count - 1) {
+                        index++;
+                    }
+                } else {
+                    // 右滑
+                    if (index > 0) {
+                        index--;
+                    }
+                }
+                imgBox.style.transform = `translateX(-${index * bannerWidth}px)`;
+            }
+            startX = moveX = distanceX = 0; // 重置变量
+        });
+    </script>
+</html>

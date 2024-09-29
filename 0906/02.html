@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.one{
+				display: inline-block;
+			}
+			.two{
+				display: inline-block;
+			}
+			h2{
+				font-family: "@ 楷体";
+				font-size: 27px;
+			}
+			#c{
+				color: #0000FF;
+			}
+			.title{
+				margin-top: 12px;
+			}
+			.two a:nth-last-child(1){
+				color: darkgray;
+			}
+			.four p:nth-of-type(1){
+				color: #4D4D4D;
+			}
+			.two a:nth-child(1){
+				font-size: 28px;
+			}
+		</style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+		<script type="text/javascript">
+			$(function(){
+				$("#a").css({"color":"red","text-decoration":"none"});
+				$("#c").click(function(){
+					$(".five").toggle();
+				});
+				$(".three").css({"border":"1px solid white",
+					"height":"34px",
+					"width":"1543px",
+					"color":"white",
+					"background-color":"gray",
+					"font-weight":"bold",
+					"padding":"11px 0px 0px 24px"
+				});
+				$("#a").click(function(){
+					$(this).css({"color":"biue","font-size":"30px"});
+					$("#b").next().css("color","green");
+				});
+			});
+		</script>
+	</head>
+	<body>
+			<div class="title">
+			<div class="one">
+				<img src="img/book.gif" alt="" width="204px" height="340px" />
+			</div>
+			<div class="two">
+				<p id="b"><a href="#" id="a">你是人间的四月天</a></p>
+				<p>
+					笑响点亮了四面风;<br>
+					轻灵在春的光艳中交舞着变 <br>
+					你是四月早天里的云烟，<br>
+					黄昏吹着风的软，<br>
+					星子在无意中闪，<br>
+					细雨点洒在花前。<br>
+					鲜妍百花的冠冕你戴着，<br>
+					你是天真，庄严，<br>
+					你是夜夜的月圆。<br>
+					柔嫩喜悦，<br>
+					水光浮动着你梦期待中白莲。<br>
+					你是一树一树的花开，<br>
+					是燕在梁间呢喃，<br>
+					——你是爱，是暖，是希望，<br>
+					<a href="#" id="c">查看全部</a>
+				</p>
+			</div>
+			<div class="five">
+				<div class="three">内容简介</div>
+				<div class="four">
+					<p>
+						这首诗发表于1934年4月的《学文》1卷1期上。关于这首诗有两种说法：一是为悼念徐志摩而作，
+						一是为儿子的出生而作，以表达心中对儿子的希望和儿子的出生带来的喜悦 <br>
+						梁从诫先生在《倏忽人间四月天》中说：“父亲曾告诉我，《你是人间的四月天》是母亲在我出生后的喜悦中
+						为我而作的,但母亲自己从未对我说起过这件事。”对于这首诗的创作意图，梁先生说得很客观。故这首诗一方面
+						是一首情诗，是为已在天国的徐志摩而作。另一方面，林徽因是一个母亲，有着对孩子强烈的母爱，为孩子写一首
+						这样轻快灵动的诗也是是绝对可能的。<br>
+						《你是人间的四月天》的一至四节句式结构基本相同，形成复沓，
+						构成对称的乐章，将心中的爱以一幅幅四月天丰美的画面作比，节奏明快"排比的句式将画面连接，
+						情感如水面涟漪层层叠叠荡漾起伏，作品不仅美而且易于吟咏，朗朗动人"诗的第五节/你是爱，是暖，
+						是希望，/你是人间的四月天！”是收束的乐章，以抽象的爱、暖、希望来比喻心中的你，极尽盛赞，
+						美不胜收“你是人间的四月天”与诗的开篇呼应，重复中有变化，诗情回旋而流转，毫无滞涩之感。
+						<br>
+						作为诗歌最为形式化的表达上，此诗的节奏、韵律与语词的选取都处于语词的中性状态，没有大红大紫、
+						纯黑纯白的俗艳与锋利，在声音上，也是温和的、静雅的，甚至走向旖旎和慵懒；十一个“你”字，既突出了主题，
+						又起到了“衬韵”的作用，在诗歌运行的过程中，“你”字的每一次出现，就像乐队演奏中的节点，
+						以“频率”的方式突出了“我”的指向，这是一种形式美感与内容美感的深层次结合，是一种
+						尚未被人们研究和认识的精妙之处。歌颂四月天，其实都是在向“你”倾诉，全诗只有一处破折号，
+						这一处破折号写着：“你是爱，是暖，是希望”，什么样的希望呢？联系林徽因的知识背景，
+						我们会更加明确这首诗艳丽的画面背后，有着理性主义表达的节制和书写的雅致，完全能够体现出
+						古典英国诗歌的高贵气象。
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>

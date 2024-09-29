@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>标题</title>
+</head>
+<style>
+    .container {
+        font-family: '宋体';
+        font-size: 1.4em;
+        
+    }
+
+    /* 鼠标滑动时放大文字效果 */
+    .container p:hover {
+        font-size: 1.6em;
+        background-color: #d3d3d3;
+        transition: font-size 0.3s ease;
+        color: #090a0c;
+    }
+</style>
+<body style="height: 100vh;">
+    <h2>软件大专2306-35袁越</h2>
+    <div class="container has-text-centered">
+        <h3 class="title">《如梦令》</h3>
+        <p class="subtitle">李清照</p>
+        <hr style="background-color: red; width: 200px; margin:auto;">
+        <p>昨夜雨疏风骤</p>
+        <p>浓睡不消残酒</p>
+        <p>试问卷帘人</p>
+        <p>却道海棠依旧</p>
+        <p>知否,知否</p>    
+        <p>应是<span style="color: rgb(0, 228, 57);">绿</span>肥<span style="color: red;">红</span>瘦!</p>
+        <br>
+        <div><!-- 按钮：一键复制 -->
+            <button id="copyBtn" class="button is-danger">一键复制</button></div>
+        <!-- 隐藏的文本，供复制用 -->
+        <p id="copyText" style="display: none;">昨夜雨疏风骤,浓睡不消残酒,试问卷帘人,却道海棠依旧,知否,知否,应是绿肥红瘦!</p>
+
+        
+    </div>
+    
+
+
+    <script>
+        // jQuery代码，鼠标滑动时放大文字效果已通过CSS实现
+
+        // jQuery 代码：一键复制文本
+        $(document).ready(function() {
+            $("#copyBtn").click(function() {
+                // 获取要复制的文本
+                var textToCopy = $("#copyText").text();
+
+                // 创建一个临时输入框来保存要复制的内容
+                var tempInput = $("<input>");
+                $("body").append(tempInput);
+                tempInput.val(textToCopy).select();
+
+                // 执行复制命令
+                document.execCommand("copy");
+
+                // 删除临时输入框
+                tempInput.remove();
+
+                // 显示提示信息
+                alert("复制成功");
+            });
+            $("p:hover").click(function() {
+                
+            })
+        });
+    </script>
+</body>
+</html>

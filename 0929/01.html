@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟移动端单击事件</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var startTime, startX, startY;
+        div.addEventListener('touchstart', function (e) {
+            if (e.targetTouches.length > 1) {
+                return;
+            }
+            startTime = Date.now();
+            startX = e.targetTouches[0].clientX;
+            startY = e.targetTouches[0].clientY;
+        });
+        div.addEventListener('touchend', function (e) {
+            if (e.changedTouches.length > 1) {
+                return;
+            }
+            var sc = Date.now() - startTime;
+            console.log(sc);
+            var endX = e.changedTouches[0].clientX;
+            var endY = e.changedTouches[0].clientY;
+            if (Math.abs(endX - startX) < 5 && Math.abs(endY - startY) < 5) {
+                console.log('此操作为单击');
+            }
+        });
+    </script>
+</body>
+
+</html>

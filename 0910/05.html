@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html常用api_网络连接</title>
+    <script src="..\static\js\jquery.min.js"></script>
+
+    <style>
+        .tips {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p class=".tips"></p>
+</body>
+<script>
+    $(function () {
+        // 当网络连接时
+        $(window).on('online', function () {
+            $('.tips').text('网络已连接').fadeIn(500).delay(1000).fadeOut();
+        });
+        // 当网络断开时
+        $(window).on('offline', function () {
+            $('.tips').text('网络未连接').fadeIn(500).delay(1000).fadeOut();
+        });
+    });
+</script>
+
+</html>

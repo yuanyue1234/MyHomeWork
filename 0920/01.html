@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11</title>
+    <style>
+        .shipin {
+            margin: auto;
+            max-width: 1000px;
+            min-width: 700px;
+            overflow: hidden;
+            /* 清除浮动 */
+            padding: 20px;
+            background-color: rgb(249,249,249,0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        .shipin ul,
+        .shipin ol {
+            float: left;
+            width: 50%;
+            /* 让两个列表各占一半宽度 */
+            box-sizing: border-box;
+            /* 包括内边距和边框在内的总宽度为50% */
+        }
+
+        .shipin ul {
+            float: left;
+        }
+
+        .shipin ol {
+            float: right;
+        }
+
+        .shipin img {
+            width: 100%;
+            /* 调整图片大小以适应列表项的宽度 */
+            height: auto;
+            /* 保持图片的原始比例 */
+            border-radius: 14px;
+            border: 2px solid #ccc;
+        }
+
+        * {
+            list-style: none;
+        }
+
+        .shipin ul>li>p>span {
+            text-align: center;
+            background-color: red;
+            margin-right: 5px;
+            padding: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            color: white;
+            display: inline-block;
+            /* 确保span是块级元素，可以设置宽度和高度 */
+        }
+
+        .shipin ul>li {
+            float: left;
+            margin: 5px;
+            display: block;
+            width: 48%;
+            /* 每个列表项占据近似一半的空间，留出一些空间给margin */
+        }
+
+        .shipin ol>li {
+            margin: 5px;
+            display: inline-block;
+            height: 40px;
+            position: relative;
+            width: 48%;
+            /* 同上，确保列表项之间有间距 */
+        }
+
+        .shipin li:hover {
+            text-decoration: underline;
+            color: rgb(13, 92, 92);
+        }
+
+        .shipin ol>li>span {
+            margin-right: 5px;
+            padding: 5px;
+            width: 12px;
+            height: 10px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 10px;
+            border-radius: 4px;
+            color: white;
+            display: inline-block;
+            background-color: green;
+        }
+        .get-button {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-60%);
+            background-color: #007bff;
+            color: white;
+            font-size: 12px;
+            padding: 5px 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body background="img/2023-05-05_20-51-55《马男波杰克》.png">
+    <div class="shipin">
+        <h2>全网热播视频</h2>
+        <ul>
+            <li>
+                <img src="img/2023-05-05_20-51-55《马男波杰克》.png" alt="">
+
+                <p><span>1</span>马男波杰克</p>
+            </li>
+            <li>
+                <img src="img/1651142454762.png" alt="">
+
+                <p><span>2</span>瑞克与莫蒂</p>
+            </li>
+
+        </ul>
+        <ol>
+            <li><span>3</span>三八线</li>
+            <li><span>4</span>吉祥天宝</li>
+            <li><span>5</span>亲爱的阿晴</li>
+            <li><span>6</span>仙剑云之凡</li>
+            <li><span>7</span>琅琊榜</li>
+            <li><span>8</span>乡村爱情</li>
+            <li><span>9</span>权利的游戏第五季</li>
+            <li><span>10</span>那年青春我们正好</li>
+        </ol>
+    </div>
+</body>
+<script src="..\static\jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('ol>li>span:first').css({
+            background: '#DFDB4B'
+        }),
+            $('ul>li:last').css({
+                color: "#858585"
+            }),
+            // 鼠标移入和移出事件
+            $('ol > li').hover(
+                function () {
+                    // 鼠标移入时，添加 get-button div
+                    if (!$(this).find('.get-button').length) {
+                        $(this).append('<div class="get-button">获取</div>');
+                    }
+                    $(this).find('.get-button').show();
+                },
+                function () {
+                    // 鼠标移出时，隐藏 get-button div
+                    $(this).find('.get-button').hide();
+                }
+            );
+        })
+</script>
+
+</html>
+</script>
+
+</html>

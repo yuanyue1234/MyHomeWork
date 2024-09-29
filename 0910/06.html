@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api_全屏操作</title>
+    <script src="..\static\js\jquery.min.js"></script>
+</head>
+<body>
+    <div>
+    <img src="0910\img\2.png" alt="">
+    <buttun class="isfullscreen">全屏</buttun>
+    <buttun class="eixtfull">取消全屏</buttun>
+    </div>
+</body>
+<script>
+   $( function(){
+    $(".isfullscreen").click(function(){
+        if(div.requestFullscreen){
+            div.requestFullscreen();
+        }else{
+            console('失败')
+        }
+    })
+   })
+</script>
+</html>
