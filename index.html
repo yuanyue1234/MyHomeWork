@@ -575,81 +575,104 @@
 
         // 从后端获取课程数据
         async function fetchCourses() {
-            const response = await fetch('http://localhost:5000/courses');
-            coursesData = await response.json();
-            renderCourseContent();
-            updateMenu();
+            try {
+                const response = await fetch('http://localhost:5000/courses');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                coursesData = data.reduce((acc, course) => {
+                    acc[course.id] = course;
+                    return acc;
+                }, {});
+                renderCourseContent();
+                updateMenu();
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+                document.querySelector('.groups-wrapper').innerHTML = `<p>加载课程数据时出错: ${error.message}</p>`;
+            }
         }
-
-        // 创建卡片函数
-        const createCard = (date, isBootstrap = false) => `
-            <div class="col-md-4 mb-4">
-                <div class="card ${isBootstrap ? 'bg-primary text-white' : ''}">
-                    <div class="card-body">
-                        <h5 class="card-title">${date.date}</h5>
-                        <p class="card-text">${date.description}</p>
-                        <a href="assignments.html?date=${date.date}" class="btn ${isBootstrap ? 'btn-light' : 'btn-custom'}">查看作业</a>
-                    </div>
-                </div>
-            </div>
-        `;
 
         // 修改渲染课程内容函数
         const renderCourseContent = () => {
             const groupsWrapper = document.querySelector('.groups-wrapper');
             groupsWrapper.innerHTML = ''; // 清空现有内容
 
-            Object.entries(coursesData)
-                .sort(([, a], [, b]) => a.order - b.order)
-                .forEach(([courseId, {title, dates}], index) => {
-                    const group = document.createElement('div');
-                    group.id = courseId;
-                    group.className = 'group';
-                    group.innerHTML = `
-                        <h3 class="group-title">${title}</h3>
-                        <div class="row" id="${courseId}-container"></div>
-                    `;
-                    groupsWrapper.appendChild(group);
+            Object.values(coursesData).forEach((courseInfo, index) => {
+                const group = document.createElement('div');
+                group.id = courseInfo.id;
+                group.className = 'group';
+                group.innerHTML = `
+                    <h3 class="group-title">${courseInfo.title}</h3>
+                    <div class="row" id="${courseInfo.id}-container"></div>
+                `;
+                groupsWrapper.appendChild(group);
 
-                    const container = group.querySelector(`#${courseId}-container`);
-                    container.innerHTML = dates.map(date => createCard(date, courseId === 'bootstrap')).join('');
+                const container = group.querySelector(`#${courseInfo.id}-container`);
+                container.innerHTML = courseInfo.dates.map(date => createCard(date, courseInfo.id)).join('');
 
-                    // 设置第一个组为活动状态
-                    if (index === 0) {
-                        group.classList.add('active');
-                    }
-                });
+                // 设置第一个组为活动状态
+                if (index === 0) {
+                    group.classList.add('active');
+                }
+            });
 
             initializeGroupSwitching();
         };
 
-        // 修改更新菜单函数
+        // 修改创建卡片函数
+        const createCard = (date, courseId) => `
+            <div class="col-md-4 mb-4">
+                <div class="card ${courseId === 'Bootstrap' ? 'bg-primary text-white' : ''}">
+                    <div class="card-body">
+                        <h5 class="card-title">${date.date}</h5>
+                        <p class="card-text">${date.description}</p>
+                        <a href="assignments.html?course=${courseId}&date=${date.date}" class="btn ${courseId === 'Bootstrap' ? 'btn-light' : 'btn-custom'}">查看作业</a>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 修改更新菜单函数，添加排序功能
         const updateMenu = () => {
             const menuList = document.getElementById('menuList');
             menuList.innerHTML = '';
-            Object.entries(coursesData)
-                .sort(([, a], [, b]) => a.order - b.order)
-                .forEach(([courseId, {title}]) => {
-                    const menuItem = document.createElement('li');
-                    menuItem.className = 'menu-item';
-                    menuItem.setAttribute('data-id', courseId);
-                    menuItem.innerHTML = `<span>${title}</span>`;
-                    menuItem.addEventListener('click', (e) => {
-                        if (!menuItem.classList.contains('sortable-chosen')) {
-                            switchGroup(courseId);
-                        }
-                    });
-                    menuList.appendChild(menuItem);
+            
+            const sortedCourses = Object.values(coursesData).sort((a, b) => {
+                return (a.order || Infinity) - (b.order || Infinity);
+            });
+
+            sortedCourses.forEach((courseInfo, index) => {
+                const menuItem = document.createElement('li');
+                menuItem.className = 'menu-item';
+                menuItem.setAttribute('data-id', courseInfo.id);
+                menuItem.innerHTML = `<span>${courseInfo.title}</span>`;
+                menuItem.addEventListener('click', (e) => {
+                    if (!menuItem.classList.contains('sortable-chosen')) {
+                        switchGroup(courseInfo.id);
+                    }
                 });
+                menuList.appendChild(menuItem);
+            });
 
             // 初始化 Sortable
             new Sortable(menuList, {
                 animation: 150,
-                onStart: function() {
-                    document.getElementById('applyOrderBtn').style.display = 'block';
-                },
-                onEnd: function (evt) {
-                    console.log('Order changed, waiting for apply');
+                onEnd: function(evt) {
+                    const newOrder = Array.from(menuList.children).map((item, index) => ({
+                        id: item.getAttribute('data-id'),
+                        order: index + 1
+                    }));
+                    
+                    // 更新 coursesData 中的顺序
+                    newOrder.forEach(item => {
+                        if (coursesData[item.id]) {
+                            coursesData[item.id].order = item.order;
+                        }
+                    });
+
+                    // 重新渲染课程内容
+                    renderCourseContent();
                 }
             });
 
@@ -752,7 +775,7 @@
         };
 
         // 添加课程函数
-        const addCourse = () => {
+        const addCourse = async () => {
             const courseId = document.getElementById('courseId').value;
             const courseTitle = document.getElementById('courseTitle').value;
             const dateInputs = document.querySelectorAll('.date-input');
@@ -761,8 +784,9 @@
             dateInputs.forEach(input => {
                 const date = input.querySelector('.date').value;
                 const description = input.querySelector('.description').value;
+                const files = ['01.html']; // 默认添加 01.html
                 if (date && description) {
-                    dates.push({ date, description });
+                    dates.push({ date, description, files });
                 }
             });
 
@@ -770,25 +794,31 @@
                 const newCourse = {
                     id: courseId,
                     title: courseTitle,
-                    order: Object.keys(coursesData).length + 1,
                     dates: dates
                 };
 
-                fetch('http://localhost:5000/courses', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(newCourse),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Course added:', data);
-                    fetchCourses(); // 重新获取课程数据并更新UI
+                try {
+                    const response = await fetch('http://localhost:5000/courses', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newCourse),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    console.log('Course added:', result);
+                    await fetchCourses(); // 重新获取课程数据并更新UI
                     $('#addCourseModal').modal('hide');
                     document.getElementById('addCourseForm').reset();
-                })
-                .catch(error => console.error('Error adding course:', error));
+                } catch (error) {
+                    console.error('Error adding course:', error);
+                    alert('添加课程失败，请重试');
+                }
             } else {
                 alert('请填写所有必要的信息');
             }

@@ -439,8 +439,9 @@
 
         // 获取URL参数
         const urlParams = new URLSearchParams(window.location.search);
+        const selectedCourse = urlParams.get('course');
         const selectedDate = urlParams.get('date');
-        let currentFile = `${selectedDate}/01.html`;
+        let currentFile = `${selectedCourse}/${selectedDate}/01.html`;
         let currentAssignmentIndex = 0;
 
         // 加载作业内容函数
@@ -457,8 +458,8 @@
             iframe.onload = () => {
                 try {
                     const iframeContent = iframe.contentWindow.document.body.innerHTML;
-                    if (iframeContent.includes("Cannot GET")) {
-                        throw new Error("Cannot GET");
+                    if (iframeContent.includes("File not found")) {
+                        throw new Error("File not found");
                     }
                     errorMessage.style.display = 'none';
                     iframe.style.display = 'block';
@@ -472,7 +473,7 @@
 
             iframe.onerror = () => showError(file);
 
-            iframe.src = file;
+            iframe.src = `/${file}`; // 移除了 '/course' 前缀
             pageTitle.textContent = `作业展示 - ${file}`;
         };
 
@@ -501,12 +502,12 @@
         };
 
         // 获取实际作业列表
-        const getActualAssignments = async (date) => {
+        const getActualAssignments = async (course, date) => {
             const possibleFiles = ['01.html', '02.html', '03.html', 'dome3.html', 'demo2.html', '0.html', 'demo1.html'];
             const assignments = [];
 
             for (const file of possibleFiles) {
-                const fileUrl = `${date}/${file}`;
+                const fileUrl = `${course}/${date}/${file}`;
                 if (await checkFileExists(fileUrl)) {
                     assignments.push(fileUrl);
                 }
@@ -516,30 +517,50 @@
 
         // 创建作业按钮
         const createAssignmentButtons = async () => {
-            const assignments = await getActualAssignments(selectedDate);
-            const assignmentContainer = document.querySelector(SELECTORS.assignmentContainer);
+            try {
+                const response = await fetch('http://localhost:5000/courses');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const courses = await response.json();
+                const course = courses.find(c => c.id === selectedCourse);
+                if (!course) {
+                    throw new Error(`Course not found: ${selectedCourse}`);
+                }
+                const dateInfo = course.dates.find(d => d.date === selectedDate);
+                if (!dateInfo) {
+                    throw new Error(`Date not found: ${selectedDate}`);
+                }
+                const assignments = dateInfo.files;
+                const assignmentContainer = document.querySelector(SELECTORS.assignmentContainer);
 
-            assignments.forEach((file, index) => {
-                const assignmentItem = document.createElement('a');
-                assignmentItem.className = 'menu-item';
-                assignmentItem.href = '#';
-                assignmentItem.innerHTML = `<span>作业 ${index + 1}</span>`;
-                assignmentItem.dataset.file = file;
+                assignmentContainer.innerHTML = ''; // 清空现有内容
 
-                assignmentItem.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    updateAssignment(index);
-                    toggleMenu();
+                assignments.forEach((file, index) => {
+                    const assignmentItem = document.createElement('a');
+                    assignmentItem.className = 'menu-item';
+                    assignmentItem.href = '#';
+                    assignmentItem.innerHTML = `<span>作业 ${index + 1}</span>`;
+                    assignmentItem.dataset.file = `${selectedCourse}/${selectedDate}/${file}`;
+
+                    assignmentItem.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        updateAssignment(index);
+                        toggleMenu();
+                    });
+
+                    assignmentContainer.appendChild(assignmentItem);
                 });
 
-                assignmentContainer.appendChild(assignmentItem);
-            });
-
-            if (assignments.length > 0) {
-                loadAssignment(assignments[0]);
-                document.querySelector('.menu-item').classList.add('active');
-            } else {
-                showError(`${selectedDate}/01.html`, '该日期没有可用的作业');
+                if (assignments.length > 0) {
+                    loadAssignment(`${selectedCourse}/${selectedDate}/${assignments[0]}`);
+                    document.querySelector('.menu-item').classList.add('active');
+                } else {
+                    showError(`${selectedCourse}/${selectedDate}/01.html`, '该日期没有可用的作业');
+                }
+            } catch (error) {
+                console.error('Error creating assignment buttons:', error);
+                showError(`${selectedCourse}/${selectedDate}/01.html`, error.message);
             }
         };
 
