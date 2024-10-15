@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem适配布局</title>
+    <style>
+        html{
+            font-size: 10px;
+        }
+        div{
+            width: 10rem;
+            height: 10rem;
+            background-color: red;
+            font-size: 14px;
+        }
+        div p{
+            width: 10em;
+            height: 10em;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>这是一个容器rem是根据根html元素的字体大小
+        <p>>我em是根据父元素的字体大小来设置宽高</p>
+    </div>
+</body>
+</html>

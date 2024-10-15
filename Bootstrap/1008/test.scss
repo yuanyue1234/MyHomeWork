@@ -1,0 +1,6 @@
+$background-color:red;
+$border:1px solid red;
+.box{
+    background-color: $background-color;
+    border: $border;
+}

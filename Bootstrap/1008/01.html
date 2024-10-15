@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性盒布局属性</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 80px;
+            border: 1px solid black;
+            background-color: aquamarine;
+            display: flex;
+            padding: 4px;
+            justify-content:  center;/* 水平方向flex-start*/
+            align-items: center;/*垂直方向 flex-start flex-end center  拉伸:stretch ; baseline*/
+        }
+        .box>div{
+            
+            border: 1px solid black;
+            background-color: brown;
+            margin: 4px;
+            flex-shrink: 0;/*默认为1收缩 0不收缩*/
+        }
+        .b{
+            width: 100px;
+            order: -1;/* 子元素排列顺序默认为0*/
+            flex-basis:300px;/*它会覆盖cSs中width的值*/
+            /* flex-grow: 1; */
+            /*flex:flex-grow flex-shrink flex-basis 3个值组成*/
+            flex:0 1 300px;
+            align-self: auto;
+        }
+        .c{
+            order: -2;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="a">A</div>
+        <div class="b">B</div>
+        <div class="c">C</div>
+        
+    </div>
+</body>
+</html>

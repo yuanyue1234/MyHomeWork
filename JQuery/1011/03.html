@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				font-size: 12px;
+				border: 1px solid #999;
+				padding: 5px;
+			}
+			#bg{
+				width: 456px;
+				height: 266px;
+				background-image: url(images/plowland.jpg);
+			}
+			img{
+				position: absolute;
+				top: 85px;
+				left: 195px;
+			}
+			#seed{
+				background-image: url(images/btn_seed.png);
+				width: 56px;
+				height: 56px;
+				position: absolute;
+				top: 229px;
+				left: 49px;
+				cursor: hand;
+			}
+			#grow{
+				background-image: url(images/btn_grow.png);
+				width: 56px;
+				height: 56px;
+				position: absolute;
+				top: 229px;
+				left: 154px;
+				cursor: hand;
+			}
+			#bloom{
+				background-image: url(images/btn_bloom.png);
+				width: 56px;
+				height: 56px;
+				position: absolute;
+				top: 229px;
+				left: 229px;
+				cursor: hand;
+			}
+			#fruit{
+				background-image: url(images/btn_fruit.png);
+				width: 56px;
+				height: 56px;
+				position: absolute;
+				top: 229px;
+				left: 368px;
+				cursor: hand;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/jquery.pngFix.pack.js"></script>
+		<script src="js/jquery.pngFix.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#bg").pngFix();
+			});
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#seed").bind("click",function(){
+					$("#temp").remove();
+					$("#bg").prepend("<span id='temp'><img src='images/seed.png'/></span>");
+				});
+				$("#grow").bind("click",function(){
+					$("#temp").remove();
+					$("#bg").append("<span id='temp'><img src='images/grow.png'/></span>");
+				});
+				$("#bloom").bind("click",function(){
+					$("#temp").replaceWith("<span id='temp'><img src='images/bloom.png'/></span>");
+				});
+				$("#fruit").bind("click",function(){
+					$("<span id='temp'><img src='images/fruit.png'/></span>").replaceAll("#temp");
+				});
+				$("#seed,#grow,#bloom,#fruit").bind("click",function(){
+					$("#temp").pngFix();
+					$("#temp").css({"position":"absolute","top":"85px","left":"195"});
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="bg">
+			<span id="seed"></span>
+			<span id="grow"></span>
+			<span id="bloom"></span>
+			<span id="fruit"></span>
+		</div>
+	</body>
+</html>

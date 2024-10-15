@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.container{
+				border: 1px solid red;
+				margin-bottom: 2px;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function() {
+				//1.closest()方法查找祖先元素
+				$('#btn1').click(function() {
+					$('#list').closest('ul').css('border', '1px solid red'); //只操作最近一个
+				})
+				$('#btn2').click(function() {
+					$('#list').parents('ul').css('border', '2px solid green');
+					//操作所有符合条件的
+				})
+
+				//2.包裹方法
+				$('#btn3').click(function() {
+					$('#ul2>li').wrap('<a></a>'); //2.1每一个的外面添加标签
+				})
+
+				$('#btn4').click(function() {
+					$('#ul2>a').wrapAll('<ol></ol>'); //2.2在所有这类a标签整个外面添加一个标签
+				})
+
+				$('#btn5').click(function() {
+					$('#ul2 li').wrapInner('<strong></strong>'); //2.3每一个的内部添加标签
+				})
+
+				$('#btn6').click(function() {
+					$('#ul2 li').unwrap(); //2.4去掉外面最近的包裹的标签
+				})
+				$('#btn7').click(function(){//3.1截取某个范围
+					$('strong>li').slice(1,3).css('background-color','aqua');
+				})
+				$('#btn8').click(function(){//3.2截取h2后面的兄弟元素
+					$('#ul3').nextUntil('h2').css('background','gold');
+				})
+				$('#btn9').click(function(){//3.3截取h2前面的兄弟元素
+					$('h2').prevUntil('div').css('color','chocolate');
+				})
+				$('#btn10').click(function(){//3.4截取到ul为止的所有祖先元素
+					$('#li5').parentsUntil('ul').css('border','2px solid green');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			1.closest()方法<br />
+			<button id="btn1">1.1只操作最近一个的祖先元素</button>
+			<button id="btn2">1.2操作所有符合条件的祖先元素</button>
+			<ul>
+				<li>
+					<ul>
+						<li id="list">列表项</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="container">
+			2.包裹方法<br />
+			<button id="btn3">2.1每一个的外面添加标签</button>
+			<button id="btn4">2.2在所有这类a标签整个外面添加一个标签</button>
+			<button id="btn5">2.3每一个的内部添加标签</button>
+			<button id="btn6">2.4去掉外面最近的包裹的标签</button>
+			<ul id="ul2">
+				<li>北京</li>
+				<li>上海</li>
+				<li>广州</li>
+				<li>深圳</li>
+				<li>杭州</li>
+			</ul>
+		</div>
+		<div class="container">
+			3.截取节点<br />
+			<button id="btn7">3.1截取某个范围</button>
+			<button id="btn8">3.2截取h2后面的兄弟元素</button>
+			<button id="btn9">3.3截取h2前面的兄弟元素</button>
+			<button id="btn10">3.4截取到ul为止的所有祖先元素</button>
+			<ul id="ul3">
+				<strong><li>长沙</li></strong>
+				<strong><li>株洲</li></strong>
+				<strong><li>成都</li></strong>
+				<strong><li id="li5">常德</li></strong>
+				<strong><li>湘潭</li></strong>
+			</ul>
+			<div>1.块容器</div>
+			<p>2.段落1</p>
+			<li>3.列表1</li>
+			<h2>4.标题</h2>
+			<p>5.段落2</p>
+		</div>
+	</body>
+</html>

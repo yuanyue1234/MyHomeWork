@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询的容器尺寸划分</title>
+    <style>
+        @media screen and (max-width:575px) {
+            .container{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:576px) {
+            .container{
+                width: 540px;
+            }
+        }
+        @media screen and (min-width:768px) {
+            .container{
+                width: 720px;
+            }
+        }
+        @media screen and (min-width:992px) {
+            .container{
+                width: 960px;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            .container{
+                width: 1140px;
+            }
+        }
+        .container{
+            height:50px;
+            line-height: 50px;
+            background-color: #ddd;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">布局容器</div>
+</body>
+</html>

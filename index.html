@@ -222,13 +222,18 @@
             top: 0;
             width: 250px;
             height: 100%;
-            background: linear-gradient(135deg, #0062E6, #33AEFF);
+           
             transition: all 0.3s ease;
             z-index: 1001;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
+            padding: 10px 0;
+  margin: 10px 0px 10px 0px;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-radius: 10px;
         }
 
         .menu.active {
@@ -311,41 +316,6 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 998;
-        }
-
-        /* 添加课程按钮样式 */
-        #addCourseBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        /* 添加课程按钮样式 */
-        .add-course-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--btn-bg);
-            color: var(--header-text);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            margin-bottom: 15px;
-            border: 2px solid var(--header-text);
-        }
-
-        .add-course-btn:hover {
-            background-color: var(--btn-hover);
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .add-course-btn:active {
-            transform: scale(0.95);
         }
 
         /* 美化模态框样式 */
@@ -488,10 +458,7 @@
         <h3 class="menu-title">课程分组</h3>
         <ul id="menuList"></ul>
         <div class="menu-buttons">
-            <button id="addCourseBtn" class="btn btn-custom add-course-btn" style="display: none;">
-                <i class="fas fa-plus"></i>
-            </button>
-            <button id="applyOrderBtn" class="btn btn-custom apply-order-btn" style="display: none;">应用分组</button>
+
         </div>
     </div>
 
@@ -517,7 +484,8 @@
         <a href="" target="_blank">&copy; 2023 软件大专2306_35袁越</a>
     </div>
 
-    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
+    <!-- 删除添加课程模态框 -->
+    <!-- <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -553,7 +521,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -676,10 +644,6 @@
                 }
             });
 
-            // 确保添加课程按钮在菜单打开时显示
-            const menu = document.querySelector(SELECTORS.menu);
-            const addCourseBtn = document.getElementById('addCourseBtn');
-            addCourseBtn.style.display = menu.classList.contains('active') ? 'flex' : 'none';
         };
 
         // 添加切换分组函数
@@ -733,7 +697,6 @@
             const menu = document.querySelector(SELECTORS.menu);
             const menuIcon = document.querySelector(SELECTORS.menuIcon);
             const overlay = document.querySelector(SELECTORS.overlay);
-            const addCourseBtn = document.getElementById('addCourseBtn');
             const applyOrderBtn = document.getElementById('applyOrderBtn');
             
             menu.classList.toggle('active');
@@ -741,7 +704,6 @@
             overlay.style.display = menu.classList.contains('active') ? 'block' : 'none';
             menuIcon.innerHTML = menu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             
-            addCourseBtn.style.display = menu.classList.contains('active') ? 'flex' : 'none';
             
             // 如果菜单关闭，隐藏"应用分组"按钮
             if (!menu.classList.contains('active')) {
@@ -829,7 +791,6 @@
             const menuIcon = document.querySelector(SELECTORS.menuIcon);
             const overlay = document.querySelector(SELECTORS.overlay);
             const applyOrderBtn = document.getElementById('applyOrderBtn');
-            const addCourseBtn = document.getElementById('addCourseBtn');
             const addDateBtn = document.getElementById('addDateBtn');
             const saveCourseBtn = document.getElementById('saveCourseBtn');
 
@@ -837,9 +798,6 @@
             overlay.addEventListener('click', toggleMenu);
             applyOrderBtn.addEventListener('click', applyOrder);
 
-            addCourseBtn.addEventListener('click', () => {
-                $('#addCourseModal').modal('show');
-            });
 
             // 为整个表单添加事件委托
             document.getElementById('addCourseForm').addEventListener('click', (e) => {
@@ -848,22 +806,6 @@
                     e.target.closest('.date-input').remove();
                 }
             });
-
-            // 添加日期按钮的事件监听器
-            document.getElementById('addDateBtn').addEventListener('click', () => {
-                const dateInputs = document.getElementById('dateInputs');
-                const newDateInput = document.createElement('div');
-                newDateInput.className = 'form-group date-input';
-                newDateInput.innerHTML = `
-                    <label>日期和描述</label>
-                    <input type="text" class="form-control date" placeholder="日期 (MMDD)" required>
-                    <input type="text" class="form-control description" placeholder="描述" required>
-                    <button type="button" class="btn btn-circle remove-date"><i class="fas fa-times"></i></button>
-                `;
-                dateInputs.appendChild(newDateInput);
-            });
-
-            saveCourseBtn.addEventListener('click', addCourse);
         };
 
         // 初始化函数
