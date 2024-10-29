@@ -1,0 +1,12 @@
+#content article h1 {
+  color: red;
+}
+#content article p {
+  font: 10px/8px;
+  width: 500px;
+  height: 250px;
+  margin-left: 9px;
+}
+#content aside {
+  border: 1px solid red;
+}

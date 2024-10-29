@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列的偏移</title>
+    <link rel="stylesheet" href="..\..\static\bootstrap-5.3.3-dist\css\bootstrap-grid.css">
+
+    <style>
+        .container{
+            border: 1px solid red;
+        }
+        [class^='col']{
+            background-color: gray;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 一行分12份，几列为12/a -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">左</div>
+            <div class="col-md-3 offset-md-6">右</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">中</div>
+        </div>
+    </div>
+</body>
+</html>
