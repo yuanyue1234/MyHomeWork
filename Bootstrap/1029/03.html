@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>项目进度表</title>
+  <link rel="stylesheet" href="<!DOCTYPE html>
+  <html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title>项目进度表</title>
+    <link rel="stylesheet" href="..\..\static\bootstrap-5.3.3-dist\css\bootstrap.min.css" />
+  </head>
+  
+  <body>
+    <div class="container">
+      <h2 class="text-center">项目进度表</h2>
+      <form action="">
+        <div class="mt-3">
+          <label for="name" class="form-label">项目名称：</label>
+          <input type="text" placeholder="请输入项目名称" class="form-control" id="name">
+          <small class="form-text">请准确填写项目的具体名称。</small>
+        </div>
+        <div class="mt-3">
+          <label for="jd" class="form-label">完成进度：</label>
+          <input type="range" id="jd">
+          <span id="jdz">50%</span>
+        </div>
+        <div class="mt-3">
+          <label for="form-label">提交项目：</label>
+          <input type="file">
+          <div class="form-text">每周五提交项目，文件格式需为[具体格式要求]。</div>
+        </div>
+        <div class="mt-3">
+          <label for="msge" class="form-label">描述本周实现的功能：</label>
+          <textarea name="" id="msge" class="form-control" rows="3"></textarea>
+          <small class="form-text">请详细描述本周项目实现的具体功能点。</small>
+        </div>
+        <div class="mt-3">
+          <label for="tiname" class="form-label">提交人员：</label>
+          <input type="text" placeholder="请输入提交人员名称" class="form-control" id="tiname">
+          <small class="form-text">填写提交项目的人员姓名。</small>
+        </div>
+        <input type="button" value="提交" class="btn btn-primary mt-3" id="submitBtn">
+      </form>
+    </div>
+    <script>
+      let range = document.querySelector('#jd');
+      let jdz = document.querySelector('#jdz');
+      range.addEventListener('input', function () {
+        jdz.textContent = range.value + '%';
+      });
+    </script>
+  </body>
+  
+  </html>" />
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-center">项目进度表</h2>
+    <form action="">
+      <div class="mt-3">
+        <label for="name" class="form-label">项目名称：</label>
+        <input type="text" placeholder="请输入项目名称" class="form-control" id="name">
+        <small class="form-text">请准确填写项目的具体名称。</small>
+      </div>
+      <div class="mt-3">
+        <label for="jd" class="form-label">完成进度：</label>
+        <input type="range" id="jd">
+        <span id="jdz">50%</span>
+      </div>
+      <div class="mt-3">
+        <label for="form-label">提交项目：</label>
+        <input type="file">
+        <div class="form-text">每周五提交项目，文件格式需为[具体格式要求]。</div>
+      </div>
+      <div class="mt-3">
+        <label for="msge" class="form-label">描述本周实现的功能：</label>
+        <textarea name="" id="msge" class="form-control" rows="3"></textarea>
+        <small class="form-text">请详细描述本周项目实现的具体功能点。</small>
+      </div>
+      <div class="mt-3">
+        <label for="tiname" class="form-label">提交人员：</label>
+        <input type="text" placeholder="请输入提交人员名称" class="form-control" id="tiname">
+        <small class="form-text">填写提交项目的人员姓名。</small>
+      </div>
+      <input type="button" value="提交" class="btn btn-primary mt-3" id="submitBtn">
+    </form>
+  </div>
+  <script>
+    let range = document.querySelector('#jd');
+    let jdz = document.querySelector('#jdz');
+    range.addEventListener('input', function () {
+      jdz.textContent = range.value + '%';
+    });
+  </script>
+</body>
+
+</html>
