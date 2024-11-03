@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306{
+				margin: 0 auto;
+				height: 50px;
+				border: 1px solid red;
+				overflow: hidden;
+				display: inline-block;
+			}
+			.rj2306 input{
+				width: 30px;
+				height: 30px;
+				padding: 0 0;
+				float: left;
+				margin: 5px;
+				text-align: center;
+				line-height: 21px;
+				border: 1px solid rgba(0, 0, 0,0.2);
+				border-radius: 5px;
+				outline: 0;
+				background-color: aquamarine;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){
+				$('.rj2306 input').keyup(function(event){
+					var e=(event)?event:window.event;
+					if(e.keyCode>=48&&e.keyCode<=57){
+						var value=$(this).val();
+						var length=value.length;
+						var val;
+						if(length>0.5){
+							val=value.substring(length-1,length);
+							$(this).val(val).next().focus();
+						}
+					}else if(e.keyCode==8){
+						$(this).prev().focus();
+					}else{
+						var _val=this.value;
+						this.value=_val.replace(/\D/g,'');
+					}
+					var mimazhi = $('input:eq(0)').val()+$('input:eq(1)').val()
+							+$('input:eq(2)').val()+$('input:eq(3)').val()
+							+$('input:eq(4)').val()+$('input:eq(5)').val();
+					$('#mima').text(mimazhi);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35-------数字支付密码界面</div>
+		<div>请输入支付密码（6位数字）</div>
+		<div class="rj2306 input">
+			<input type="password" />
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+		</div>
+		<div>你输入的密码为：<span id="mima"></span></div>
+	</body>
+</html>

@@ -1,0 +1,277 @@
+.home_slider {
+	FLOAT: left; WIDTH: 700px; POSITION: relative; HEIGHT: 342px
+}
+.home_slider .inner {
+	WIDTH: 600px; POSITION: relative; HEIGHT: 342px
+}
+.home_slider .inner LI {
+	LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%
+}
+.home_slider .inner:unknown {
+	Z-INDEX: -1; LEFT: 5px; WIDTH: 50%; BOTTOM: 18px; POSITION: absolute; content: "?"; box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5); transform: rotate(-3deg); webkit-transform: rotate(-3deg); moz-transform: rotate(-3deg); O-transform: rotate(-3deg); ms-transform: rotate(-3deg)
+}
+.home_slider .inner:unknown {
+	Z-INDEX: -1; LEFT: 5px; WIDTH: 50%; BOTTOM: 18px; POSITION: absolute; content: "?"; box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5); transform: rotate(-3deg); webkit-transform: rotate(-3deg); moz-transform: rotate(-3deg); O-transform: rotate(-3deg); ms-transform: rotate(-3deg)
+}
+.home_slider .inner:unknown {
+	RIGHT: 5px; LEFT: auto; transform: rotate(3deg); webkit-transform: rotate(3deg); moz-transform: rotate(3deg); O-transform: rotate(3deg); ms-transform: rotate(3deg)
+}
+.home_slider .controller {
+	RIGHT: -6px; OVERFLOW: hidden; WIDTH: 95px; POSITION: absolute; TOP: 0px; HEIGHT: 100%
+}
+.home_slider .controller A {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; DISPLAY: block; MARGIN-BOTTOM: 8px; BORDER-LEFT: #000 1px solid; WIDTH: 93px; BORDER-BOTTOM: #000 1px solid; HEIGHT: 60px
+}
+.home_slider .controller A:hover {
+	BORDER-LEFT-COLOR: #f97f24; BORDER-BOTTOM-COLOR: #f97f24; BORDER-TOP-COLOR: #f97f24; BORDER-RIGHT-COLOR: #f97f24
+}
+.home_slider .controller A.hover {
+	BORDER-LEFT-COLOR: #f97f24; BORDER-BOTTOM-COLOR: #f97f24; BORDER-TOP-COLOR: #f97f24; BORDER-RIGHT-COLOR: #f97f24
+}
+.home_slider .controller IMG {
+	DISPLAY: block
+}
+.home_links {
+	BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: right
+}
+.singin-login {
+	MARGIN: 15px 0px
+}
+.weibo-link {
+	DISPLAY: block; BACKGROUND: url(../images/first_block_sidebar.png) no-repeat 0px 0px; WIDTH: 260px
+}
+.singin {
+	DISPLAY: block; BACKGROUND: url(../images/first_block_sidebar.png) no-repeat 0px 0px; WIDTH: 260px
+}
+.login {
+	DISPLAY: block; BACKGROUND: url(../images/first_block_sidebar.png) no-repeat 0px 0px; WIDTH: 260px
+}
+.bbs-link {
+	DISPLAY: block; BACKGROUND: url(../images/first_block_sidebar.png) no-repeat 0px 0px; WIDTH: 260px
+}
+.weibo-link {
+	BACKGROUND-POSITION: 0px -1px; HEIGHT: 56px
+}
+.singin {
+	BACKGROUND-POSITION: 0px -61px; HEIGHT: 37px
+}
+.login {
+	BACKGROUND-POSITION: 0px -98px; HEIGHT: 37px
+}
+.bbs-link {
+	BACKGROUND-POSITION: 0px -138px; HEIGHT: 185px
+}
+.top_app {
+	BORDER-TOP: #eee 1px solid
+}
+.pc_device {
+	
+}
+.f-l {
+	FLOAT: left
+}
+.f-r {
+	MARGIN-TOP: -30px; FLOAT: right
+}
+.f-w700 {
+	FONT-WEIGHT: 700
+}
+.m-t5 {
+	MARGIN-TOP: 5px; OVERFLOW: hidden; WIDTH: 235px; HEIGHT: 54px
+}
+.p-0 {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; PADDING-TOP: 0px! important
+}
+.em1 {
+	COLOR: #999
+}
+.em2 {
+	COLOR: #ff9933
+}
+.software-rec .tit {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.pc-hardware .tit {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.digital .tit {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.digital .h1 {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.software-rec .h1 {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.pc-hardware H1 {
+	BACKGROUND: url(../images/content_icon.png) no-repeat -999em -999em; OVERFLOW: hidden
+}
+.more {
+	WIDTH: 90px; HEIGHT: 100%
+}
+.digital .h1 {
+	MARGIN-TOP: 8px; MARGIN-LEFT: 12px; WIDTH: 98px; TEXT-INDENT: -999em; HEIGHT: 24px
+}
+.software-rec .h1 {
+	MARGIN-TOP: 8px; MARGIN-LEFT: 12px; WIDTH: 98px; TEXT-INDENT: -999em; HEIGHT: 24px
+}
+.pc-hardware .h1 {
+	MARGIN-TOP: 8px; MARGIN-LEFT: 12px; WIDTH: 98px; TEXT-INDENT: -999em; HEIGHT: 24px
+}
+.software-rec .h1 {
+	BACKGROUND-POSITION: 0px -101px; MARGIN-TOP: -30px; POSITION: absolute
+}
+.pc-hardware .h1 {
+	BACKGROUND-POSITION: -102px -101px
+}
+.digital .h1 {
+	BACKGROUND-POSITION: -206px -101px
+}
+.software-rec {
+	MARGIN-TOP: 45px; POSITION: relative
+}
+.software-rec .tit {
+	BACKGROUND-POSITION: -1px -10px; HEIGHT: 39px
+}
+.software-rec .tit .links {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 30px; PADDING-BOTTOM: 0px; PADDING-TOP: 10px
+}
+.software-rec .tit .frag {
+	MARGIN: 0px 10px; COLOR: #bebebe
+}
+.software-rec .tit .on {
+	COLOR: #fe5104
+}
+.software-rec .tit A {
+	FONT-WEIGHT: 700
+}
+.software-in {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 20px; PADDING-TOP: 25px
+}
+.app-top-list {
+	
+}
+.app-top-list LI {
+	DISPLAY: inline; FLOAT: left; MARGIN-BOTTOM: 20px; MARGIN-LEFT: 25px; LINE-HEIGHT: 1.5em; TEXT-ALIGN: center
+}
+.app-top-list A {
+	DISPLAY: block
+}
+.app-top-list STRONG {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.app-top-list IMG {
+	DISPLAY: block; border-radius: 5px; box-shadow: 0 0 5px #ccc
+}
+.pc-hardware .tit {
+	BACKGROUND-POSITION: -1px -55px; HEIGHT: 39px
+}
+.digital .tit {
+	BACKGROUND-POSITION: -1px -55px; HEIGHT: 39px
+}
+.pc-hardware .con {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px; MIN-HEIGHT: 200px; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px; box-shadow: 0 0 5px #ccc
+}
+.digital .con {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px; MIN-HEIGHT: 200px; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px; box-shadow: 0 0 5px #ccc
+}
+.con {
+	WIDTH: 708px
+}
+.software-rec .con {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px; MIN-HEIGHT: 200px; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px; box-shadow: 0 0 5px #ccc
+}
+.con_foot {
+	BACKGROUND: url(../images/con_foot.jpg) no-repeat; HEIGHT: 6px
+}
+.big-pic-show {
+	BACKGROUND: url(../images/pc_box1_bg.png) repeat-x 0px 2px; BORDER-BOTTOM: #c9c9c9 1px solid
+}
+.big-pic-show {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 20px; PADDING-TOP: 20px
+}
+.pic-list {
+	WIDTH: 350px
+}
+.pic-list LI {
+	MARGIN-BOTTOM: 3px; ZOOM: 1; POSITION: relative; HEIGHT: 72px
+}
+.pic-list LI .em {
+	PADDING-RIGHT: 0.4em; DISPLAY: inline-block; PADDING-LEFT: 0.4em; BACKGROUND: #ff9933; PADDING-BOTTOM: 0.1em; COLOR: #fff; MARGIN-RIGHT: 0.3em; PADDING-TOP: 0.1em
+}
+.pic-list .img-warp {
+	LEFT: 0px; OVERFLOW: hidden; POSITION: absolute
+}
+.pic-list .img-warp IMG {
+	VERTICAL-ALIGN: middle
+}
+.pic-list .des {
+	MIN-HEIGHT: 66px; MARGIN-LEFT: 100px; HEIGHT: 66px
+}
+.pic-list .des A {
+	DISPLAY: block; OVERFLOW: hidden; HEIGHT: 18px
+}
+.big-pic-show .pic-list .des A {
+	DISPLAY: block; HEIGHT: 35px
+}
+.pic-list-wrap {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 18px; PADDING-TOP: 20px
+}
+.pic-list-wrap .pic-list {
+	WIDTH: 678px
+}
+.pic-list-wrap .pic-list LI {
+	PADDING-RIGHT: 0px; BORDER-TOP: #f1f1f1 1px solid; MARGIN-TOP: -1px; PADDING-LEFT: 0px; FLOAT: left; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 9px; WIDTH: 335px; PADDING-TOP: 9px; HEIGHT: 98px
+}
+.pic-list-wrap .pic-list .img-warp {
+	TOP: 7px
+}
+.img-warp {
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #ddd 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #ddd 1px solid
+}
+.big-pic-show .img-warp {
+	FLOAT: left
+}
+.big-pic-show .pic-list {
+	FLOAT: right
+}
+.top_app .sliderbar {
+	BACKGROUND: url(../images/home_sliderbar_top.png) #f1f1f1 no-repeat 100% 0px
+}
+
+.today_topbg {
+	BACKGROUND: url(../images/today_topbg.jpg) no-repeat; MARGIN: auto; WIDTH: 252px; LINE-HEIGHT: 37px; HEIGHT: 37px
+}
+.today_topbg H4 {
+	FLOAT: left; MARGIN-LEFT: 12px; WIDTH: 87px
+}
+
+.today_footbg {
+	BACKGROUND: url(../images/today_footbg.jpg) no-repeat; MARGIN: auto; WIDTH: 252px; HEIGHT: 6px
+}
+
+.today_current {
+	BACKGROUND: #fd821a
+}
+
+.today_print {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px solid; MARGIN-TOP: 4px; FLOAT: left; BORDER-LEFT: #dddddd 1px solid; WIDTH: 44px; BORDER-BOTTOM: #dddddd 1px solid; HEIGHT: 44px
+}
+.today_print IMG {
+	MARGIN-TOP: 5px; MARGIN-LEFT: 5px
+}
+.today_new {
+	FLOAT: left; MARGIN-LEFT: 5px; WIDTH: 185px
+}
+.todat_rank {
+	BACKGROUND: url(../images/digit_bg.jpg) no-repeat; FLOAT: left; WIDTH: 12px; LINE-HEIGHT: 21px; MARGIN-RIGHT: 4px; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.todat_rank P {
+	COLOR: #fff
+}
+.today_new SPAN {
+	COLOR: #aeaeae
+}
+.lunbo_print {
+	WIDTH: 93px; HEIGHT: 60px
+}

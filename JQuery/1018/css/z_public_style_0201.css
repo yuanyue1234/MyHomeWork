@@ -1,0 +1,450 @@
+ {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none; outline: none
+}
+A {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none; outline: none
+}
+A {
+	TEXT-DECORATION: none
+}
+.clear1 {
+	CLEAR: both; FONT-SIZE: 0px; OVERFLOW: hidden; HEIGHT: 0px
+}
+.clear {
+	ZOOM: 1
+}
+.clear:unknown {
+	CLEAR: both; DISPLAY: block; content: " "
+}
+
+.blank10 {
+	CLEAR: both; FONT-SIZE: 0px; OVERFLOW: hidden; LINE-HEIGHT: 0px; HEIGHT: 10px
+}
+.blank20 {
+	CLEAR: both; FONT-SIZE: 0px; OVERFLOW: hidden; LINE-HEIGHT: 0px; HEIGHT: 20px
+}
+#z_top1208 {
+	BACKGROUND: #ffffff; WIDTH: 100%; HEIGHT: 164px
+}
+#z_top1208 .z_submenu {
+	WIDTH: 100%; BORDER-BOTTOM: #e2e2e2 1px solid; HEIGHT: 30px; BACKGROUND-COLOR: #f9f9f9
+}
+#z_top1208 .z_submenu .z_submenu990 {
+	Z-INDEX: 100; MARGIN: 0px auto; VERTICAL-ALIGN: middle; WIDTH: 990px; POSITION: relative; HEIGHT: 30px
+}
+#z_top1208 .z_submenu .z_submenu990 A {
+	COLOR: #666
+}
+#z_top1208 .z_submenu_left {
+	FLOAT: left; WIDTH: 300px; HEIGHT: 30px
+}
+#z_top1208 .shoucang {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 18px; FONT-SIZE: 12px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat right 9px; FLOAT: left; COLOR: #666; LINE-HEIGHT: 30px; HEIGHT: 30px
+}
+#z_top1208 .guanzhu {
+	Z-INDEX: 5; FLOAT: left; MARGIN-LEFT: -2px; WIDTH: 90px; LINE-HEIGHT: 30px; POSITION: relative; HEIGHT: 30px
+}
+#z_top1208 .guanzhu .gz_a {
+	BORDER-RIGHT: #f9f9f9 1px solid; PADDING-RIGHT: 9px; BORDER-TOP: #f9f9f9 1px solid; MARGIN-TOP: 3px; DISPLAY: block; PADDING-LEFT: 9px; FONT-SIZE: 12px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat -16px -25px; PADDING-BOTTOM: 0px; BORDER-LEFT: #f9f9f9 1px solid; COLOR: #666; LINE-HEIGHT: 22px; PADDING-TOP: 0px; BORDER-BOTTOM: #f9f9f9 1px; HEIGHT: 26px
+}
+#z_top1208 .guanzhu .gz_a2 {
+	BORDER-RIGHT: #dadada 1px solid; BORDER-TOP: #dadada 1px solid; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) #fff no-repeat -16px -45px; BORDER-LEFT: #dadada 1px solid; BORDER-BOTTOM: #dadada 1px; HEIGHT: 26px
+}
+#z_top1208 .guanzhu .gz_a:hover {
+	CURSOR: pointer; COLOR: #666; TEXT-DECORATION: none
+}
+#z_top1208 .guanzhu .top_gz_list {
+	Z-INDEX: 10; BACKGROUND: #fff; LEFT: 0px; OVERFLOW: hidden; WIDTH: 90px; POSITION: absolute; TOP: 30px; HEIGHT: 56px
+}
+#z_top1208 .guanzhu .top_gz_list A {
+	BORDER-RIGHT: #dadada 1px solid; PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 5px; FONT-SIZE: 12px; FLOAT: left; PADDING-BOTTOM: 5px; OVERFLOW: hidden; BORDER-LEFT: #dadada 1px solid; WIDTH: 83px; LINE-HEIGHT: 18px; PADDING-TOP: 5px; HEIGHT: 18px
+}
+#z_top1208 .guanzhu .top_gz_list {
+	BORDER-BOTTOM: #dadada 1px solid
+}
+#z_top1208 .guanzhu .top_gz_bg1 {
+	DISPLAY: inline-block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/head_14.jpg) no-repeat; VERTICAL-ALIGN: middle; WIDTH: 20px; MARGIN-RIGHT: 5px; HEIGHT: 18px
+}
+#z_top1208 .guanzhu .top_gz_bg2 {
+	DISPLAY: inline-block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/head_14.jpg) no-repeat 0px -24px; VERTICAL-ALIGN: middle; WIDTH: 20px; MARGIN-RIGHT: 5px; HEIGHT: 18px
+}
+#z_top1208 .guanzhu .top_gz_bg3 {
+	DISPLAY: inline-block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/head_14.jpg) no-repeat 0px -48px; VERTICAL-ALIGN: middle; WIDTH: 20px; MARGIN-RIGHT: 5px; HEIGHT: 18px
+}
+#z_top1208 .fzp {
+	MARGIN-TOP: 5px; DISPLAY: inline; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/fzp.jpg) no-repeat; FLOAT: left; MARGIN-LEFT: 5px; WIDTH: 90px; HEIGHT: 20px
+}
+#z_top1208 .fzp A {
+	DISPLAY: block; WIDTH: 90px; HEIGHT: 20px
+}
+#z_top1208 .z_submenu_right {
+	FLOAT: right; HEIGHT: 30px
+}
+#z_top1208 .z_submenu_right LI {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 12px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat right 9px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN-LEFT: -2px; COLOR: #666; LINE-HEIGHT: 30px; PADDING-TOP: 0px; HEIGHT: 30px
+}
+#z_top1208 .z_submenu_right .topright_kefu {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#z_top1208 .z_submenu_right .topright_kefu SPAN {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+#z_top1208 .z_submenu_right .login {
+	COLOR: #e4186b
+}
+.z_submenu_right .zhuce {
+	COLOR: #e4186b
+}
+.topright_kefu SPAN {
+	COLOR: #e4186b
+}
+#z_top1208 .z_submenu_right .login {
+	MARGIN-RIGHT: 5px
+}
+#z_top1208 .z_submenu_right .gwc {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN-LEFT: 0px; WIDTH: 104px; PADDING-TOP: 0px; POSITION: relative
+}
+#z_top1208 .z_submenu_right .gwc A.gwc_a {
+	BORDER-RIGHT: #f9f9f9 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #f9f9f9 1px solid; MARGIN-TOP: 3px; DISPLAY: block; PADDING-LEFT: 10px; Z-INDEX: 500; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat -4px -25px; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: -2px; OVERFLOW: hidden; BORDER-LEFT: #f9f9f9 1px solid; WIDTH: 84px; LINE-HEIGHT: 20px; PADDING-TOP: 0px; BORDER-BOTTOM: #f9f9f9 1px solid; POSITION: absolute
+}
+#z_top1208 .z_submenu_right .gwc A.gwc_a2 {
+	BORDER-RIGHT: #dadada 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #dadada 1px solid; PADDING-LEFT: 10px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) #fff no-repeat -4px -45px; PADDING-BOTTOM: 0px; MARGIN-LEFT: -2px; VERTICAL-ALIGN: baseline; BORDER-LEFT: #dadada 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #fff 1px solid
+}
+#z_top1208 .z_submenu_right .gwc .aaa {
+	DISPLAY: inline-block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat 0px -65px; FLOAT: left; VERTICAL-ALIGN: middle; WIDTH: 13px; MARGIN-RIGHT: 5px; HEIGHT: 20px
+}
+#z_top1208 .z_submenu_right .gwc .gwc_num {
+	FONT-WEIGHT: bold; COLOR: #f51972; TEXT-DECORATION: none
+}
+.buy_go_con {
+	BORDER-RIGHT: #dcdcda 1px solid; BORDER-TOP: #dcdcda 1px solid; Z-INDEX: 400; BACKGROUND: #fff; LEFT: -2px; BORDER-LEFT: #dcdcda 1px solid; WIDTH: 311px; BORDER-BOTTOM: #dcdcda 1px solid; POSITION: absolute; TOP: 24px
+}
+.buy_go_con DL {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: #fff; PADDING-BOTTOM: 10px; WIDTH: 291px; PADDING-TOP: 10px; BORDER-BOTTOM: #ddd 1px dashed; HEIGHT: 40px
+}
+.buy_go_con DT {
+	FLOAT: left; WIDTH: 40px; MARGIN-RIGHT: 5px; HEIGHT: 40px
+}
+.buy_go_con DD {
+	FLOAT: left; LINE-HEIGHT: 22px
+}
+.buy_go_red {
+	FONT-SIZE: 12px; COLOR: #fa4268; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+.buy_go_tit {
+	FONT-SIZE: 12px; FLOAT: left; WIDTH: 230px; LINE-HEIGHT: 25px
+}
+.buy_go_tit A {
+	DISPLAY: block; FLOAT: left; VERTICAL-ALIGN: baseline; OVERFLOW: hidden; WIDTH: 160px; COLOR: #6e6e6e; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis
+}
+.buy_go_tit SPAN {
+	DISPLAY: block; FLOAT: right
+}
+.buy_go_tit SPAN A {
+	DISPLAY: block; WIDTH: 30px; COLOR: #9e9e9e
+}
+DL.buy_go_noborder {
+	BORDER-BOTTOM-STYLE: none
+}
+.buy_go_center {
+	PADDING-LEFT: 20px
+}
+.buy_go_buttom {
+	PADDING-RIGHT: 25px; PADDING-LEFT: 20px; FONT-SIZE: 12px; BACKGROUND: #f9f9f9; WIDTH: 266px; COLOR: #787878; LINE-HEIGHT: 33px; POSITION: relative; HEIGHT: 33px; TEXT-ALIGN: left
+}
+.buy_go_buttom1 {
+	BACKGROUND: #fff; HEIGHT: 36px
+}
+.buy_go_buttom A {
+	DISPLAY: inline; RIGHT: 25px; POSITION: absolute; TOP: 8px
+}
+#z_top1208 .z_submenu .z_submenu990 A.buy_go_accoent {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/account.gif) no-repeat; WIDTH: 57px; COLOR: #fff; LINE-HEIGHT: 22px; TEXT-ALIGN: center
+}
+#z_top1208 .z_submenu .z_submenu990 A.buy_go_accoent:hover {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.f_16 {
+	PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+#z_top1208 .z_submenu_right .topright_self {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: -2px; WIDTH: 80px; PADDING-TOP: 0px; POSITION: relative; HEIGHT: 30px; TEXT-ALIGN: center
+}
+#z_top1208 .z_submenu_right .topright_self .topright_self_top {
+	BORDER-RIGHT: #f9f9f9 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #f9f9f9 1px solid; MARGIN-TOP: 3px; DISPLAY: block; PADDING-LEFT: 2px; FONT-SIZE: 12px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) no-repeat -28px -25px; PADDING-BOTTOM: 0px; BORDER-LEFT: #f9f9f9 1px solid; WIDTH: 70px; COLOR: #666; LINE-HEIGHT: 22px; PADDING-TOP: 0px; BORDER-BOTTOM: #f9f9f9 1px; HEIGHT: 26px
+}
+#z_top1208 .z_submenu_right .topright_self .topright_self_top_hover {
+	BORDER-RIGHT: #dadada 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #dadada 1px solid; PADDING-LEFT: 2px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/tb.png) #fff no-repeat -28px -45px; PADDING-BOTTOM: 0px; BORDER-LEFT: #dadada 1px solid; WIDTH: 70px; COLOR: #f51972; PADDING-TOP: 0px; BORDER-BOTTOM: #dadada 1px; HEIGHT: 26px
+}
+#z_top1208 .z_submenu_right .topright_self .my_home_list {
+	BORDER-RIGHT: #dddddd 1px solid; BORDER-TOP: #dddddd 1px; Z-INDEX: 9999; BACKGROUND: #fff; LEFT: 0px; BORDER-LEFT: #dddddd 1px solid; WIDTH: 78px; PADDING-TOP: 2px; BORDER-BOTTOM: #dddddd 1px solid; POSITION: absolute; TOP: 30px
+}
+#z_top1208 .z_submenu_right .topright_self .my_home_list LI {
+	BACKGROUND: none transparent scroll repeat 0% 0%; LINE-HEIGHT: 24px; HEIGHT: 24px
+}
+#z_top1208 .z_submenu_right .topright_self .my_home_list .m_middle_c {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 2px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+#z_top1208 .z_submenu_right .topright_self .my_home_list .m_footer_c {
+	OVERFLOW: hidden; HEIGHT: 6px
+}
+#z_top1208 .z_submenu_right .topright_self .my_home_list A:hover {
+	COLOR: #e20062
+}
+#z_top1208 .z_submenu_right .topright_self A {
+	COLOR: #666
+}
+.z_banner {
+	WIDTH: 988px; HEIGHT: 158px
+}
+#z_top1208 .z_submenu A:hover {
+	COLOR: #e81f75; TEXT-DECORATION: underline
+}
+#z_top1208 .z_logomain {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/bg_tou_0201.jpg) no-repeat; MARGIN: 0px auto; WIDTH: 990px; POSITION: relative; HEIGHT: 93px
+}
+#z_top1208 .z_logomain .z_logo {
+	LEFT: 15px; WIDTH: 146px; POSITION: absolute; TOP: 19px; HEIGHT: 60px
+}
+#z_top1208 .z_logomain .z_logo #index_logo {
+	DISPLAY: block; WIDTH: 146px; HEIGHT: 60px
+}
+#z_top1208 .z_logo_middle {
+	LEFT: 295px; WIDTH: 267px; POSITION: absolute; TOP: 26px; HEIGHT: 64px
+}
+#z_top1208 .z_logo_search {
+	PADDING-LEFT: 30px; WIDTH: 237px; HEIGHT: 32px
+}
+#z_top1208 .z_logo_search .z_logo_text {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 177px; COLOR: #969696; LINE-HEIGHT: 32px; HEIGHT: 32px; BORDER-RIGHT-WIDTH: 0px
+}
+#z_top1208 .z_logo_search .z_logo_sub {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 16px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 60px; CURSOR: pointer; COLOR: #fff; LINE-HEIGHT: 32px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; HEIGHT: 32px; BORDER-RIGHT-WIDTH: 0px
+}
+#z_top1208 .z_logo_key {
+	CLEAR: both; WIDTH: 267px; LINE-HEIGHT: 32px; HEIGHT: 32px; TEXT-ALIGN: left
+}
+#z_top1208 .z_logo_key A {
+	FONT-SIZE: 12px; MARGIN-LEFT: 5px; COLOR: #969696; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+#z_top1208 .z_logo_key A.f5 {
+	COLOR: #f51972
+}
+#z_top1208 .z_logo_key A:hover {
+	COLOR: #f51972
+}
+#z_top1208 .z_logo_right {
+	RIGHT: 26px; WIDTH: 358px; POSITION: absolute; TOP: 27px; HEIGHT: 31px
+}
+#z_top1208 .z_logo_right A {
+	DISPLAY: block; WIDTH: 358px; HEIGHT: 31px
+}
+#z_top1208 .z_navmain .z_navmain990 {
+	MARGIN: 0px auto; VERTICAL-ALIGN: middle; WIDTH: 990px; HEIGHT: 40px
+}
+#z_top1208 .z_navmain_l {
+	FLOAT: left
+}
+.z_navmain_l_current {
+	DISPLAY: block; FONT-SIZE: 15px; Z-INDEX: 10000; FLOAT: left; WIDTH: 108px; COLOR: #fff; LINE-HEIGHT: 40px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; POSITION: relative; HEIGHT: 40px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+#z_top1208 .header_list A {
+	DISPLAY: block; FONT-WEIGHT: bold; FONT-SIZE: 15px; WIDTH: 108px; COLOR: #fff; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; HEIGHT: 40px
+}
+#z_top1208 .z_navmain_r {
+	FLOAT: right
+}
+#z_top1208 .z_navmain .z_navmain990 A.navmain_list {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; FLOAT: left; WIDTH: 108px; COLOR: #fff; LINE-HEIGHT: 40px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; HEIGHT: 40px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+#z_top1208 .z_navmain .z_navmain990 .z_navmain_r A {
+	FONT-SIZE: 13px; FLOAT: left; WIDTH: 88px; COLOR: #fff; LINE-HEIGHT: 40px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; HEIGHT: 40px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+#z_top1208 .z_navmain .z_navmain990 .nav_jifen {
+	DISPLAY: inline; MARGIN-LEFT: 2px
+}
+#z_top1208 .z_navmain {
+	WIDTH: 100%; HEIGHT: 40px; BACKGROUND-COLOR: #000
+}
+#z_top1208 .header_list {
+	BACKGROUND: #f51972; LEFT: 0px; POSITION: absolute; TOP: 40px
+}
+#z_top1208 .z_navmain .z_navmain990 .header_list A:hover {
+	BACKGROUND: #ff4490
+}
+#z_top1208 .z_navmain .z_navmain990 A:hover {
+	BACKGROUND: #f51972; TEXT-DECORATION: none
+}
+.z_navmain_l_current A.wq {
+	DISPLAY: block; FONT-WEIGHT: bold; FONT-SIZE: 15px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/nav_sanj2.png) #f51972 no-repeat 8px 0px; WIDTH: 108px; COLOR: #fff; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; HEIGHT: 40px
+}
+#z_top1208 .z_navmain .z_navmain990 .z_navmain_l_current A.navhover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/nav_sanj2.png) #f51972 no-repeat 8px -40px
+
+}
+.z_navmain_l_current A.wq:hover {
+	COLOR: #fff
+}
+.foot {
+	CLEAR: both; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/new_foot_03.jpg) #fbfbfb repeat-x; PADDING-BOTTOM: 30px; PADDING-TOP: 21px; HEIGHT: auto
+}
+.foot_1 {
+	PADDING-LEFT: 23px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/new_foot_06.jpg) no-repeat left top; MARGIN: 0px auto; WIDTH: 967px; HEIGHT: 155px; TEXT-ALIGN: center
+}
+.foot_con {
+	PADDING-LEFT: 32px; FLOAT: left; WIDTH: 133px; TEXT-ALIGN: left
+}
+.foot_con A {
+	DISPLAY: block; FONT-SIZE: 12px; COLOR: #999; LINE-HEIGHT: 20px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+.foot_con A.f_16 {
+	FONT-SIZE: 16px; COLOR: #333; LINE-HEIGHT: 30px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"
+}
+.foot_con A.mt_ding {
+	MARGIN-TOP: 5px
+}
+.foot_con A:hover {
+	COLOR: #e81f75; TEXT-DECORATION: none
+}
+.foot_con A.f_16 {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A.f_14 {
+	FONT-SIZE: 16px; COLOR: #333; LINE-HEIGHT: 36px; HEIGHT: 36px
+}
+A.f_14:hover {
+	COLOR: #333; TEXT-DECORATION: none
+}
+.a_tt {
+	WIDTH: 100px
+}
+.foot IMG {
+	FLOAT: left
+}
+.foot_2 {
+	MARGIN: 0px auto; WIDTH: 954px; HEIGHT: 140px; TEXT-ALIGN: center
+}
+.foot_2_con {
+	FLOAT: left; MARGIN: 0px auto; WIDTH: 131px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; TEXT-ALIGN: center
+}
+.foot_2_con IMG {
+	DISPLAY: block; PADDING-LEFT: 0px; FLOAT: none
+}
+.foot_2_con A {
+	DISPLAY: block
+}
+.foot2_con1 {
+	FONT-SIZE: 16px; COLOR: #404040
+}
+.foot2_con1:hover {
+	COLOR: #404040; TEXT-DECORATION: none
+}
+.foot2_con2 {
+	FONT-SIZE: 12px; COLOR: #747474
+}
+.foot2_con2:hover {
+	COLOR: #747474; TEXT-DECORATION: none
+}
+.foot_3 {
+	MARGIN: 0px auto; WIDTH: 750px
+}
+.foot_3 IMG {
+	MARGIN-LEFT: 25px
+}
+.shengming {
+	FONT-SIZE: 12px; MARGIN: 0px 0px 13px; COLOR: #747474; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; TEXT-ALIGN: center
+}
+.shengming A {
+	COLOR: #747474
+}
+.shengming A:hover {
+	COLOR: #e81f75
+}
+.w_120 {
+	WIDTH: 120px
+}
+.w_140 {
+	WIDTH: 140px
+}
+.w_130 {
+	WIDTH: 130px
+}
+.m_r0 {
+	MARGIN-RIGHT: 0px
+}
+
+
+
+.kj_con1_1 {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj4.gif) no-repeat left top; WIDTH: 94px; POSITION: relative; HEIGHT: 36px
+}
+.kj_con1_1 .nub {
+	FONT-SIZE: 11px; LEFT: 12px; WIDTH: 12px; COLOR: #fff; POSITION: absolute; TOP: 6px; TEXT-ALIGN: center
+}
+
+
+
+.kj_con1:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left 0px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 36px
+}
+.kj_con2:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -36px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 36px
+}
+.kj_con3:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -72px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 36px
+}
+.kj_con4:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj3_08.gif) no-repeat left 0px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 36px
+}
+.kj_con5:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -318px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 31px
+}
+
+.kj_dh1 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -145px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_con1_1 {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj4.gif) no-repeat left top; WIDTH: 94px; COLOR: #fff; HEIGHT: 36px
+}
+.kj_dh2 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -174px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_dh3 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -203px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_dh4 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -232px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_dh5 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -261px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_dh6 {
+	DISPLAY: block; PADDING-LEFT: 48px; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj_06.gif) no-repeat left -290px; WIDTH: 46px; COLOR: #666; LINE-HEIGHT: 28px; HEIGHT: 28px; TEXT-DECORATION: none
+}
+.kj_dh1:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -145px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.kj_con1_1:hover {
+	BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj4_03.gif) no-repeat left 0px; WIDTH: 94px; CURSOR: pointer; HEIGHT: 36px
+}
+.kj_dh2:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -174px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.kj_dh3:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -203px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.kj_dh4:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -232px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.kj_dh5:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -261px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.kj_dh6:hover {
+	DISPLAY: block; BACKGROUND: url(../../02%E5%BF%AB%E6%8D%B7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E6%8A%98%E5%8F%A0/images/kj2_06.gif) no-repeat left -290px; WIDTH: 46px; COLOR: #e91f75; LINE-HEIGHT: 28px; HEIGHT: 28px
+}

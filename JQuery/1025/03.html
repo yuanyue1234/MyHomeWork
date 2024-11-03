@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306 {
+				border: 1px solid red;
+				background-color: aquamarine;
+				height: 200px;
+				width: 400px;
+			}
+
+			#p1 {
+				border: 1px solid goldenrod;
+				width: 350px;
+				height: 120px;
+				background-color: aqua;
+			}
+
+			span {
+				display: block;
+				width: 150px;
+				height: 50px;
+				background-color: blue;
+			}
+
+			#dv1,
+			#dv2 {
+				width: 60px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				margin: 5px;
+			}
+
+			#dv1 {
+				background-color: chocolate;
+			}
+
+			#dv2 {
+				background-color: crimson;
+			}
+		</style>
+		<script src="JS/jquery-1.12.4.js"></script>
+		<script>
+			$(function() {
+				$('#span1').click(function() {
+					console.log('span元素被单击了');
+				});
+				$('#p1').click(function() {
+					console.log('p元素被单击了');
+				});
+				$('.rj2306:eq(0)').click(function() {
+					console.log('div元素被单击了');
+				});
+				$('#span2').click(function(event) {
+					console.log('delegateTarget:');
+					console.log(event.delegateTarget);
+					console.log('currentTarget:');
+					console.log(event.currentTarget);
+					console.log('target:');
+					console.log(event.target);
+					// $('.rj2306:eq(1)').append(event.target);
+				});
+				var top = $('#dv2').offset().top;
+				var left = $('#都不').offset().left;
+				var result = "box2距离顶部：" + top + "px，距离左侧：" + left + "px。";
+				console.log(result);
+				$('.rj2306:eq(2)').append('<div>' + result + '<div>');
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35</div>
+		<div class="rj2306">
+			1.事件冒泡<br />
+			div元素
+			<p id="p1">
+				p元素
+				<span>
+					span元素
+				</span>
+			</p>
+		</div>
+		<div class="rj2306">
+			2.事件对象<br>
+			<span id="span2">每天进步一点点！</span>
+		</div>
+		<div class="rj2306">
+			3.元素位置<br>
+			<div id="dv1">1</div>
+			<div id="dv2">2</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			legend{
+				border: 1px solid  red;
+				width: 280px;
+			}
+			span{
+				border: 1px solid blue;
+				width: 700px;
+				display: block;
+				height: auto;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){
+				//1.键盘释放事件
+				$('#pwd').keyup(function(){
+					$('#rj2306').append('keyup(释放按键)<br>');
+				});
+				//2.键盘按下事件
+				$('#pwd').keydown(function(){
+					$('#rj2306').append('keydown(按下按键)');
+				});
+				//3.keypress事件
+				$('#pwd').keypress(function(){
+					var key = event.keyCode;
+					$('#rj2306').append('keypress(产生字符),其ASCII码为：'+key+',');
+					
+				});
+				//document中keydown事件
+				$(document).keydown(function(){
+					if(event.keyCode=='13'){
+						alert('确定要提交吗？');
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35</div>
+		<form action="">
+			<legend>
+				会员登录
+			
+			<table>
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="username"></td>
+				</tr>
+				<tr>
+					<td>密码：</td>
+					<td><input type="password" id="pwd"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="登录"></td>
+				</tr>
+			</table>
+			</legend>
+		</form>
+		<span id="rj2306"></span>
+	</body>
+</html>

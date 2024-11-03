@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.rj2306 {
+				width: 210px;
+				margin: 5px 0 0 5px;
+			}
+
+			.rj2306-top a {
+				display: block;
+				height: 45px;
+				font-size: 16px;
+				line-height: 45px;
+				padding: 0 10px;
+				background: #b1191A;
+				color: white;
+			}
+
+			ul {
+				background: #c81623;
+				list-style: none;
+				padding-bottom: 1px;
+			}
+
+			ul li {
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #fff;
+				position: relative;
+				padding-left: 5px;
+			}
+
+			.orange {
+				background-color: orange;
+			}
+
+			ul li a {
+				color: white;
+			}
+
+			ul li div {
+				display: none;
+				position: absolute;
+				left: 211px;
+				top: 0px;
+			}
+		</style>
+		<script src="JS/jquery-1.12.4.js"></script>
+		<script>
+			$(function() {
+				$('li').hover(function() {
+					$(this).children('div').show();
+					$(this).toggleClass('orange');
+				}, function() {
+					$(this).children('div').hide();
+					$(this).toggleClass('orange');
+
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35</div>
+		<div class="rj2306">
+			<div class="rj2306-top"><a href="#">全部商品分类</a></div>
+			<ul>
+				<li>
+					<a href="#">家用电器</a>
+					<div><img src="img/erji.jpg" /></div>
+				</li>
+				<li>
+					<a href="#">手机</a>、<a href="#">数码</a>、<a href="#">京东通信</a>
+					<div><img src="img/erji1.jpg" /></div>
+				</li>
+				<li>
+					<a href="#">电脑</a>、<a href="#">办公</a>
+					<div><img src="img/erji2.jpg" /></div>
+				</li>
+				<li>
+					<a href="#">家居</a>、<a href="#">家具</a>、<a href="#">家装</a>、
+					<a href="#">厨具</a>
+					<div><img src="img/erji3.jpg" /></div>
+				</li>
+				<li>
+					<a href="#">男装</a>、<a href="#">女装</a>、<a href="#">珠宝</a>
+					<div><img src="img/erji4.jpg" /></div>
+				</li>
+			</ul>
+
+
+		</div>
+	</body>
+</html>

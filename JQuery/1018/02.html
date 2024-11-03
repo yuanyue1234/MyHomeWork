@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+				.rj2306{/* 1.评价整体样式 */
+							padding-left: 0;
+							overflow: hidden;
+						}
+						ul li{///* 2.评价每一个li的样式 */
+							float: left;
+							width: 27px;
+							height: 27px;
+							list-style: none;
+							background: url("images/star.gif");/* 显示灰色的星星 */
+						}
+						ul li.light{
+							background-position: 0-29px;/* //显示彩色的星星 */
+						}
+						ul,p{
+							float: left;
+						}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){//0、$（）表示默认执行
+				//1、为Li元素注册mouseover事件
+				$('.rj2306>li').mouseover(function(){
+					//1.1、为当前Li，以及之前的Li，添加cLass=Light样式（显示彩色的星星）
+					$(this).addClass('light');
+					$(this).prevAll('li').addClass('light');
+					//1.2、为当前Li之后的Li，去掉cLass=Light样式（显示灰色的星星）
+					$(this).nextAll('li').removeClass('light');
+				});
+				//2、为Li元素注册cLick事件
+				$('.rj2306>1i').click(function(){
+					//2.1、把当前Li，添加属性Light=on
+					$(this).attr('light','on');
+					//2.2、其余的兄弟Li，去掉属性Light
+					$(this).siblings('li').removeAttr('light');
+					//2.3显示评价
+					var num=$(this).index()+1;
+					//alert(num)
+					$('#fen').text('');
+					$('#pingjia').text('你的评价为'+num+'星！');
+					
+				});
+				//3、为Li元素注册mouseout事件
+				$('.rj2306>1i').mouseout(function(){
+					//3.1、先移出所有Li的cLass=Light
+					$('.rj2306').find('1i').removeClass('light');
+					//3.2、对于Li中带有ight=on属性的，添加cLass=Light（包含其前面的i）
+					$('.rj2306>li[light=on]').addClass('light');
+					$('.rj2306>li[light=on]').prevAll('1i').addClass('light');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h2>软件大专2306_35-------顾客满意度评价</h2>
+		<ul class="rj2306">
+			<li class="light"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<p id=“fen">1</p>
+		<p id="pingjia">你的评价为1星！</p>
+	</body>
+</html>
