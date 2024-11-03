@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{
+				font-size: 12px;
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+			}
+			li{
+				padding: 7px;
+			}
+			a{
+				color: black;
+				text-decoration: none;
+			}
+			a:hover{
+				color: greenyellow;
+			}
+			#rj2306{
+				border: 1px solid red;
+				float: left;
+				text-align: center;
+				width: 100px;
+				height: 218px;
+				padding-top:5px;
+				background-image: url();
+				
+			}
+		</style>
+		<script src="..\\..\static\js\jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('#flag').mouseenter(function(){
+					if($('#rj2306').is(':hidden')){
+						$('#rj2306').show(500);
+					}
+				});
+				$('#rj2306').hover(null,function(){
+					$(this).hide(500);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35---自动隐藏式菜单---</div>
+		<div id="rj2306">
+			<ul>
+				<li><a href="#">家乡人物</a></li>
+				<li><a href="#">家乡历史</a></li>
+				<li><a href="#">家乡美景</a></li>
+				<li><a href="#">家乡美食</a></li>
+				<li><a href="#">家乡新政区域</a></li>
+				<li><a href="#">家乡产业</a></li>
+			</ul>
+		</div>
+		<img src="" width="30" height="80" id="flag"/>
+	</body>
+</html>

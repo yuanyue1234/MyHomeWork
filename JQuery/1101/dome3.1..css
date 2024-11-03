@@ -1,0 +1,154 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	text-decoration: none;
+}
+html{
+	color: #404040;
+	font-size: 12px;
+	font-family: "Arial","微软雅黑";
+}
+a{
+	color: #1a66b3;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.hide{
+	display: none;
+}
+.clearfix{
+	clear: both;
+	overflow: hidden;
+	height: 0;
+}
+.warp{
+	width: 800px;
+	margin: 0 auto;
+}
+.rj2306-top{
+	height: 32px;
+	background-color: lightblue;
+	padding-top: 2px;
+	line-height: 32px;
+	border-bottom: 1px solid red;
+	color: #646464;
+}
+.rj2306-top a{
+	color: #646464;
+}
+.rj2306-top a:hover{
+	color: #ff2832;
+}
+.top-l .top-login{
+	color: #ff2832;
+	margin-right: 5px;
+}
+.top-r>li{
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	padding-top: 5px;
+}
+.top-r>li.line{
+	width: 1px;
+	height: 12px;
+	background: #a1a1a1;
+	margin: 10px 0 0;
+	padding: 0;
+}
+.top-r>li a{
+	display: block;
+	padding: 0 8px;
+}
+.top-r>li a.menu-btn{
+	padding-right: 27px;
+	background: url(../images/home_sprite.png) no-repeat right -307px;
+}
+.top-r>li a i{
+	margin-right: 6px;
+	margin-top: 3px;
+}
+.top-r>li.on{
+	position: relative;
+	border: 1px #e6e6e6 solid;
+	background: white;
+}
+.top-r ul.topDown{
+	position: absolute;
+	border: 1px solid #e6e6e6;
+	background: white;
+	width: 100%;
+	border-top: 0;
+	left: -1px;
+	top: 27px;
+	display: none;
+}
+.top-r ul.topDown li{
+	line-height: 24px;
+}
+.top-r ul.topDown li a{
+	color: black;
+	padding-left: 10px;
+	display: block;
+}
+.top-r ul.topDown li a:hover{
+	background: #f2f2f2;
+	color: red;
+}
+.top-r .top-car{
+	width: 15px;
+	height: 14px;
+	background: url(../images/home_sprite.png) no-repeat -40px -86px;
+}
+.top-r .top-tel{
+	width: 11px;
+	height: 16px;
+	background: url(../images/home_sprite.png) no-repeat -40px -70px;
+}
+
+/*-------------------------商品导航相关样式-开始----------------------------*/
+.rj2306-box{
+	height: 36px;
+	line-height: 36px;
+	color: black;
+}
+.rj2306-box li{
+	float: left;
+	background: #efefef;
+}
+.rj2306-box li a{
+	color: #000;
+	padding: 0 15px;
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+}
+.rj2306-box .all{
+	width: 190px;
+	border: 2px transparent solid;
+	border-width: 0 2px;
+}
+.rj2306-box .all a,.rj2306-box .all a:hover{
+	padding-left: 20px;
+	padding-right: 0px;
+	background: url(../images/home_sprite.png) no-repeat 161px -567px;
+}
+.rj2306-box li.on{
+	position: relative;
+}
+.rj2306-box li.topDown{
+	position: absolute;
+	width: 120px;
+	background: white;
+	top: 24px;
+	left: 0;
+}
+.rj2306-box li a:hover{
+	color: white;
+}
+/*-------------------------商品导航相关样式-结束----------------------------*/

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="dome3.1..css" />
+		<script src="..\\..\static\js\jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('.top-r .on').hover(function(){
+					$('.topDown').show('slow');
+				},function(){
+					$('.topDown').hide(1000);
+				});
+				$('.nav-ul a').mouseover(function(){
+					$(this).css('background-color','pink');
+				});
+				$('.nav-ul a').mousemove(function(){
+					$(this).css('background-color','#efefef')
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35————某购物网站导航效果</div>
+		<div class="rj2306-top">
+			<div class="warp">
+				<div class="top-l left">
+					欢迎光临，请
+					<a href="" class="top-login">登录</a>
+					<a href="">免费注册</a>
+				</div>
+				<ul class="top-r right">
+					<li><a href=""><i class="top-car left"></i>购物车</a></li>
+					<li class="line"></li>
+					<li><a href="">我的订单</a></li>
+					<li class="line"></li>
+					<li><a href="">自出版</a></li>
+					<li class="line"></li>
+					<li><a href=""><i class="top-tel left"></i>手机</a></li>
+					<li class="line"></li>
+					<li class="on" style="width: 69px;">
+						<a href="" class="menu-btn">我的</a>
+						<ul class="topDown">
+							<li><a href="">我的积分</a></li>
+							<li><a href="">我的收藏</a></li>
+							<li><a href="">我的余额</a></li>
+							<li><a href="">我的评论</a></li>
+							<li><a href="">电子书架</a></li>
+						</ul>
+					</li>
+					<li class="line"></li>
+					<li><a href="" class="menu-btn">企业采购</a></li>
+					<li class="line"></li>
+					<li><a href="" class="menu-btn">客户服务</a></li>
+					<li class="line"></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="rj2306-box" style="margin-top: 30px;">
+			<div class="wrap" style="width: 725px;background: #fff;">
+				<ul class="nav-ul">
+					<li class="all"><a href="">首页</a></li>
+					<li><a href="">秒杀</a></li>
+					<li><a href="">优惠</a></li>
+					<li><a href="">PLUS会员</a></li>
+					<li><a href="">闪购</a></li>
+					<li><a href="">服饰</a></li>
+					<li><a href="">婴孕童</a></li>
+					<li><a href="">家具</a></li>
+					<li><a href="">电器城</a></li>
+					<div class="clearfix"></div>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
