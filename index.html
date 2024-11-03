@@ -25,6 +25,7 @@
             font-family: 'Arial', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            padding-top: 60px; /* 为固定头部留出空间 */
         }
 
         .container {
@@ -33,14 +34,20 @@
 
         /* 头部样式 */
         .header {
-            color: var(--text-color);
-            padding: 10px 0;
-            margin: 10px;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            background: var(--header-bg);
             color: var(--header-text);
+            padding: 10px 0;
+            text-align: center;
+            background: var(--header-bg);
             border-radius: 10px;
+            position: fixed; /* 固定在顶部 */
+            top: 0; /* 距离顶部0 */
+            left: 0; /* 距离左侧0 */
+            margin: 10px;
+            
+            right: 0; /* 距离右侧0 */
+        }
+        .header h2{
+            margin-bottom: 0px;
         }
 
 
@@ -222,18 +229,15 @@
             top: 0;
             width: 250px;
             height: 100%;
-           
             transition: all 0.3s ease;
             z-index: 1001;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            padding: 10px 0;
-  margin: 10px 0px 10px 0px;
-  background: var(--header-bg);
-  color: var(--header-text);
-  border-radius: 10px;
+            background: var(--header-bg);
+            color: var(--header-text);
+            border-radius: 10px;
         }
 
         .menu.active {
@@ -502,7 +506,7 @@
 
         let coursesData = {};
 
-        // 从后端获取课程数据
+        // 从后端获��课程数据
         async function fetchCourses() {
             try {
                 const response = await fetch('http://localhost:5000/courses');

@@ -34,6 +34,7 @@
             margin: 10px;
             text-align: center;
             border-radius: 10px;
+            
         }
 
         .assignments-page .header h2 {
@@ -44,7 +45,7 @@
         /* 侧边栏样式 */
         .menu-buttons {
             position: fixed;
-            left: 20px;
+            left: 30px;
             top: 20px;
             display: flex;
             z-index: 1002;
@@ -86,11 +87,15 @@
             top: 0;
             width: 250px;
             height: 100%;
-            background-color: var(--card-bg);
             transition: all 0.3s ease;
             z-index: 1001;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            background: var(--header-bg);
+            color: var(--header-text);
+            border-radius: 10px;
         }
 
         .menu.active {
@@ -216,9 +221,8 @@
         }
 
         /* 页脚样式 */
-        .assignments-page .footer {
+        .assignments-page  {
             text-align: center;
-            padding: 20px 10px;
             margin-top: 20px;
             margin: 10px;
             box-sizing: border-box;
@@ -226,10 +230,11 @@
             background-color: var(--header-bg);
             color: var(--header-text);
         }
-
+        .footer {
+            color: black;
+        }
         .footer a {
-            color: var(--header-text);
-            text-decoration: none;
+            color: black;
             transition: opacity 0.3s ease;
         }
 
@@ -373,6 +378,7 @@
         <a id="openInNewTab" class="menu-button" title="在新页面打开">
             <i class="fas fa-external-link-alt"></i>
         </a>
+        <a id="viewSourceBtn" class="menu-button" title="查看源代码"> <i class="fas fa-code"></i> </a>
         <a href="index.html" class="menu-button" title="返回主页">
             <i class="fas fa-home"></i>
         </a>
@@ -411,7 +417,7 @@
     <div class="footer">
         <p>&copy; 2023 软件大专2306_35袁越 | 
             <a href="https://asunny.top/" target="_blank">
-                个人网站 <i class="fas fa-external-link-alt footer-icon"></i>
+                个人网站
             </a>
         </p>
     </div>
@@ -474,7 +480,7 @@
             iframe.onerror = () => showError(file);
 
             iframe.src = `/${file}`; // 移除了 '/course' 前缀
-            pageTitle.textContent = `作业展示 - ${file}`;
+            pageTitle.textContent = ` ${file}`;
         };
 
         // 显示错误信息
@@ -630,6 +636,35 @@
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', init);
+
+        document.querySelector('#viewSourceBtn').addEventListener('click', async () => {
+            try {
+                const response = await fetch(currentFile);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const sourceCode = await response.text();
+                const newWindow = window.open('', '_blank');
+                newWindow.document.open();
+                newWindow.document.write('<pre>' + escapeHtml(sourceCode) + '</pre>');
+                newWindow.document.close();
+            } catch (error) {
+                console.error('Error fetching source code:', error);
+            }
+        });
+
+        // Helper function to escape HTML
+        function escapeHtml(text) {
+            return text.replace(/[&<>"']/g, function (m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                }[m];
+            });
+        }
     </script>
 </body>
 

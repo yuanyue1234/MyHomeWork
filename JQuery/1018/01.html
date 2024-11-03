@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306 {
+				border: 1px solid red;
+				height: 200px;
+				width: 500px;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function() { //0.$()默认执行
+				//1、鼠标事件
+				//1.1、初始化变量
+				var num1 = 0,
+					num2 = 0;
+				//1.2、鼠标移动事件
+				$('.rj2306:eq(0)').mouseout(function() {
+					$('#m0ut').text(num1++);
+				});
+				//1.3、鼠标移出事件
+				$('.rj2306:eq(0)').mouseleave(function() {
+					$('#mLeave').text(num2++);
+				});
+				//2、window事件
+				//2.1、焦点事件（获得焦点）
+				$('#input1').focus(function(){
+				$(this).css('background-color','greenyellow');
+				});
+				//2.2、焦点事件（失去焦点）
+				$('#input1').blur(function(){
+				$(this).css('background-color',"white');
+				});
+				//2.3、改变页面尺寸
+				$(window).resize(function(){
+				var h= window.innerHeight;
+				var w = window.innerWidth;
+				alert('你改变里窗口大小，窗口宽度为：'+W+'高度为' + h);
+				});
+				//3、键盘事件
+				$('.info').change(function(){
+				$(this).css('background-color','#7fe1a1');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<h2>软件大专2306班35</h2>
+		</div>
+		<div class="rj2306">
+			1.鼠标事件
+			<h3 style="background-color: aqua;">
+				mouseout(鼠标移动)事件被触发<span id="mOut">0</span>次<br />
+				mouseleave(鼠标离开)事件被触发<spanid=mLeave">0</span>次
+			</h3>
+		</div>
+		<div class="rj2306">
+			2、window事件<br>
+			输入框：<input type="text">
+		</div>
+		<div class="rj2306">
+			3、键盘事件<br>
+			<p>昵称：<input type="text" class="info"></p>
+			<p>密码：<input type="password" class="info"></p>
+			<p>性别：
+				<select name="male" class="info">
+					<option value="boy">男</option>
+					<option value="girl">女</option>
+				</select>
+			</p>
+	</body>
+</html>
