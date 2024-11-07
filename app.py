@@ -272,4 +272,5 @@ def health_check():
 if __name__ == '__main__':
     # 启动时读取一次数据以初始化更新时间
     courses, _ = get_courses()
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
