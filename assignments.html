@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作业展示</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static\bootstrap-5.3.3-dist\css\bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
         /* 定义全局变量 */
         :root {
@@ -231,6 +232,7 @@
             color: var(--header-text);
         }
         .footer {
+            margin-top: 40px;
             color: black;
         }
         .footer a {
@@ -423,8 +425,9 @@
     </div>
 
     <!-- 替换jQuery CDN为本地文件 -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="static\bootstrap-5.3.3-dist\js\bootstrap.min.js"></script>
     <script>
         // 常量定义
         const SELECTORS = {
@@ -521,51 +524,85 @@
             return assignments;
         };
 
-        // 创建作业按钮
+        // 修改 createAssignmentButtons 函数
         const createAssignmentButtons = async () => {
             try {
-                const response = await fetch('http://localhost:5000/courses');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                let courses;
+                
+                // 检查localStorage中的后端状态
+                const backendStatus = localStorage.getItem('backendStatus');
+                const backendStatusExpiry = localStorage.getItem('backendStatusExpiry');
+                const now = new Date().getTime();
+                
+                // 如果后端在线且未过期，尝试从后端获取数据
+                if (backendStatus === 'online' && backendStatusExpiry && now < parseInt(backendStatusExpiry)) {
+                    try {
+                        const response = await fetch('http://localhost:5000/courses');
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const responseData = await response.json();
+                        courses = responseData.courses; // 从返回的数据中获取courses数组
+                    } catch (error) {
+                        console.log('后端获取失败，尝试加载本地数据');
+                        throw error;
+                    }
+                } else {
+                    // 从本地加载数据
+                    const response = await fetch('/courses.json');
+                    if (!response.ok) {
+                        throw new Error('无法加载courses.json');
+                    }
+                    const coursesData = await response.json();
+                    courses = Object.values(coursesData); // 转换为数组格式
                 }
-                const courses = await response.json();
+
                 const course = courses.find(c => c.id === selectedCourse);
                 if (!course) {
-                    throw new Error(`Course not found: ${selectedCourse}`);
+                    throw new Error(`未找到课程: ${selectedCourse}`);
                 }
+
                 const dateInfo = course.dates.find(d => d.date === selectedDate);
                 if (!dateInfo) {
-                    throw new Error(`Date not found: ${selectedDate}`);
+                    throw new Error(`未找到日期: ${selectedDate}`);
                 }
+
                 const assignments = dateInfo.files;
                 const assignmentContainer = document.querySelector(SELECTORS.assignmentContainer);
+                assignmentContainer.innerHTML = '<h3 class="menu-title">作业列表</h3>'; // 添加标题
 
-                assignmentContainer.innerHTML = ''; // 清空现有内容
+                if (assignments && assignments.length > 0) {
+                    assignments.forEach((file, index) => {
+                        const assignmentItem = document.createElement('a');
+                        assignmentItem.className = 'menu-item';
+                        assignmentItem.href = '#';
+                        assignmentItem.innerHTML = `<span>作业 ${index + 1}</span>`;
+                        assignmentItem.dataset.file = `${selectedCourse}/${selectedDate}/${file}`;
 
-                assignments.forEach((file, index) => {
-                    const assignmentItem = document.createElement('a');
-                    assignmentItem.className = 'menu-item';
-                    assignmentItem.href = '#';
-                    assignmentItem.innerHTML = `<span>作业 ${index + 1}</span>`;
-                    assignmentItem.dataset.file = `${selectedCourse}/${selectedDate}/${file}`;
+                        assignmentItem.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            updateAssignment(index);
+                            toggleMenu();
+                        });
 
-                    assignmentItem.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        updateAssignment(index);
-                        toggleMenu();
+                        assignmentContainer.appendChild(assignmentItem);
                     });
 
-                    assignmentContainer.appendChild(assignmentItem);
-                });
-
-                if (assignments.length > 0) {
+                    // 加载第一个作业
                     loadAssignment(`${selectedCourse}/${selectedDate}/${assignments[0]}`);
                     document.querySelector('.menu-item').classList.add('active');
                 } else {
+                    assignmentContainer.innerHTML += '<div class="menu-item">该日期没有可用的作业</div>';
                     showError(`${selectedCourse}/${selectedDate}/01.html`, '该日期没有可用的作业');
                 }
+
             } catch (error) {
-                console.error('Error creating assignment buttons:', error);
+                console.error('创建作业按钮时出错:', error);
+                const assignmentContainer = document.querySelector(SELECTORS.assignmentContainer);
+                assignmentContainer.innerHTML = `
+                    <h3 class="menu-title">错误</h3>
+                    <div class="menu-item">加载失败: ${error.message}</div>
+                `;
                 showError(`${selectedCourse}/${selectedDate}/01.html`, error.message);
             }
         };
