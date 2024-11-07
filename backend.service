@@ -1,0 +1,13 @@
+[Unit]
+Description=Your Project Backend
+After=network.target
+
+[Service]
+Type=simple
+User=your-username
+WorkingDirectory=/var/www/your-project/backend
+ExecStart=/usr/bin/python3 app.py  # 或者 node app.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 

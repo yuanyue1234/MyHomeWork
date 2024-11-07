@@ -7,7 +7,7 @@
     <title>实训作业展示</title>
     <link rel="stylesheet" href="static\bootstrap-5.3.3-dist\css\bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="/static/js/sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <style>
         /* 定义全局变量 */
         :root {
@@ -488,9 +488,9 @@
         <a href="" target="_blank">&copy; 2023 软件大专2306_35袁越</a>
     </div>
 
-    <script src="/static/js/jquery-3.4.1.min.js"></script>
-    <script src="/static/js/popper.min.js"></script>
-    <script src="static\bootstrap-5.3.3-dist\js\bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="static/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
     <script>
         // 常量定义
         const SELECTORS = {
@@ -508,103 +508,37 @@
 
         // 修改 fetchCourses 函数
         async function fetchCourses() {
-            // 检查localStorage中的后端状态和过期时间
-            const backendStatus = localStorage.getItem('backendStatus');
-            const backendStatusExpiry = localStorage.getItem('backendStatusExpiry');
-            const now = new Date().getTime();
-            
-            // 如果状态未过期且为离线，直接使用本地数据
-            if (backendStatus === 'offline' && backendStatusExpiry && now < parseInt(backendStatusExpiry)) {
-                console.log('使用缓存的后端状态：离线');
-                await loadLocalData();
-                return;
-            }
-
-            // 显示加载提示
-            const loadingMessage = document.createElement('div');
-            loadingMessage.className = 'alert alert-info';
-            loadingMessage.style.position = 'fixed';
-            loadingMessage.style.top = '70px';
-            loadingMessage.style.left = '50%';
-            loadingMessage.style.transform = 'translateX(-50%)';
-            loadingMessage.style.zIndex = '9999';
-            loadingMessage.innerHTML = `
-                <strong>加载中：</strong> 正在检查后端服务...
-                <div class="spinner-border spinner-border-sm text-primary ms-2" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            `;
-            document.body.appendChild(loadingMessage);
-
-            const fetchWithTimeout = async (url, options = {}, timeout = 5000) => {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), timeout);
-                
-                try {
-                    const response = await fetch(url, {
-                        ...options,
-                        signal: controller.signal,
-                        headers: {
-                            'Accept': 'application/json',
-                            'Cache-Control': 'no-cache'
-                        }
-                    });
-                    clearTimeout(timeoutId);
-                    return response;
-                } catch (error) {
-                    clearTimeout(timeoutId);
-                    throw error;
-                }
-            };
-
             try {
-                // ���查后端服务
-                const healthCheck = await fetchWithTimeout('http://localhost:5000/health');
-                
-                if (!healthCheck.ok) {
-                    throw new Error('后端服务未正常运行');
-                }
-
-                // 设置后端状态为在线，有效期30分钟
-                localStorage.setItem('backendStatus', 'online');
-                localStorage.setItem('backendStatusExpiry', (now + 30 * 60 * 1000).toString());
-
-                console.log('后端服务正常运行，尝试获取课程数据...');
-                loadingMessage.innerHTML = `
-                    <strong>加载中：</strong> 正在获取课程数据...
-                    <div class="spinner-border spinner-border-sm text-primary ms-2" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                `;
-                
-                const response = await fetchWithTimeout('http://localhost:5000/courses');
-                
+                // 直接从 courses.json 加载数据
+                const response = await fetch('/courses.json');
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error('无法加载课程数据');
                 }
                 
-                const responseData = await response.json();
-                console.log('成功获取课程数据:', responseData);
-                console.log('最后更新时间:', responseData.lastUpdate || '未知');
+                const coursesDict = await response.json();
+                coursesData = coursesDict;
                 
-                // 将课程数组转换为以id为键的对象
-                coursesData = responseData.courses.reduce((acc, course) => {
-                    acc[course.id] = course;
-                    return acc;
-                }, {});
-
-                loadingMessage.remove();
-                showSuccessMessage(`课程数据已从后端加载 (更新时间: ${responseData.lastUpdate || '未知'})`);
+                // 渲染内容
+                renderCourseContent();
+                updateMenu();
                 
             } catch (error) {
-                console.error('后端数据获取失败:', error);
-                
-                // 设置后端状态为离线，有效期30分钟
-                localStorage.setItem('backendStatus', 'offline');
-                localStorage.setItem('backendStatusExpiry', (now + 30 * 60 * 1000).toString());
-                
-                await loadLocalData();
-            } finally {
+                console.error('加载课程数据失败:', error);
+                // 使用默认数据
+                coursesData = {
+                    'HTML': {
+                        id: 'HTML',
+                        title: 'HTML 基础课程',
+                        order: 1,
+                        dates: [
+                            {
+                                date: '2024-03-11',
+                                description: '备用数据 - 无法加载courses.json',
+                                files: ['01.html']
+                            }
+                        ]
+                    }
+                };
                 renderCourseContent();
                 updateMenu();
             }
@@ -750,31 +684,37 @@
                 menuButtons.appendChild(applyOrderBtn);
             }
 
-            // 修改 Sortable 配置
-            new Sortable(menuList, {
-                animation: 150,
-                onStart: function() {
-                    // 开始拖动时显示应用按钮
-                    document.getElementById('applyOrderBtn').style.display = 'block';
-                },
-                onEnd: function(evt) {
-                    // 拖动结束时，只更新内部顺序，不立即渲染
-                    const newOrder = Array.from(menuList.children).map((item, index) => ({
-                        id: item.getAttribute('data-id'),
-                        order: index + 1
-                    }));
-                    
-                    // 更新内部数据顺序
-                    newOrder.forEach(item => {
-                        if (coursesData[item.id]) {
-                            coursesData[item.id].order = item.order;
+            // 确保 Sortable 存在后再初始化
+            if (typeof Sortable !== 'undefined') {
+                new Sortable(menuList, {
+                    animation: 150,
+                    onStart: function() {
+                        const applyOrderBtn = document.getElementById('applyOrderBtn');
+                        if (applyOrderBtn) {
+                            applyOrderBtn.style.display = 'block';
                         }
-                    });
-                    
-                    // 显示应用按钮，提示用户需要保存更改
-                    document.getElementById('applyOrderBtn').style.display = 'block';
-                }
-            });
+                    },
+                    onEnd: function(evt) {
+                        const newOrder = Array.from(menuList.children).map((item, index) => ({
+                            id: item.getAttribute('data-id'),
+                            order: index + 1
+                        }));
+                        
+                        newOrder.forEach(item => {
+                            if (coursesData[item.id]) {
+                                coursesData[item.id].order = item.order;
+                            }
+                        });
+                        
+                        const applyOrderBtn = document.getElementById('applyOrderBtn');
+                        if (applyOrderBtn) {
+                            applyOrderBtn.style.display = 'block';
+                        }
+                    }
+                });
+            } else {
+                console.warn('Sortable library not loaded');
+            }
         };
 
         // 添加切换分组函数
@@ -992,20 +932,30 @@
         const addEventListeners = () => {
             const menuIcon = document.querySelector(SELECTORS.menuIcon);
             const overlay = document.querySelector(SELECTORS.overlay);
-            const applyOrderBtn = document.getElementById('applyOrderBtn');
-            const addDateBtn = document.getElementById('addDateBtn');
-            const saveCourseBtn = document.getElementById('saveCourseBtn');
+            
+            if (menuIcon) {
+                menuIcon.addEventListener('click', toggleMenu);
+            }
+            
+            if (overlay) {
+                overlay.addEventListener('click', toggleMenu);
+            }
 
-            menuIcon.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-            applyOrderBtn.addEventListener('click', applyOrder);
-
-            document.getElementById('addCourseForm').addEventListener('click', (e) => {
-                if (e.target.closest('.remove-date')) {
-                    e.preventDefault(); // 阻止默认行为
-                    e.target.closest('.date-input').remove();
-                }
-            });
+            // 移除这些元素的事件监听，因为它们在初始化时可能还不存在
+            // const applyOrderBtn = document.getElementById('applyOrderBtn');
+            // const addDateBtn = document.getElementById('addDateBtn');
+            // const saveCourseBtn = document.getElementById('saveCourseBtn');
+            
+            // 改为在创建这些元素时添加事件监听
+            const addCourseForm = document.getElementById('addCourseForm');
+            if (addCourseForm) {
+                addCourseForm.addEventListener('click', (e) => {
+                    if (e.target.closest('.remove-date')) {
+                        e.preventDefault();
+                        e.target.closest('.date-input').remove();
+                    }
+                });
+            }
         };
 
         // 初始化函数
