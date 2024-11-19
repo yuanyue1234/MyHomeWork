@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+				list-style: none;
+				text-decoration: none;
+			}
+			#rj2306{
+				width: 1210px;
+				height: 360px;
+				border: 1px solid red;
+				margin: 50px auto;
+				overflow: hidden;
+			}
+			#rj2306 #pic{
+				width: 100%;
+			}
+			#rj2306 #pic .tp{
+				position: absolute;
+				float: left;
+				width: 1210px;
+				height: 360px;
+			}
+			#rj2306 ul{
+				position: relative;
+				top: 85%;
+				left: 45%;
+			}
+			#rj2306 ul li{
+				display:inline-block;
+				background-color: #ffff00;
+				height: 30px;
+				width: 30px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 30px;
+				margin: 10px;
+				cursor: pointer;
+			}
+			#rj2306 ul li.num{
+				background-color: red;
+				color: white;
+			}
+			.btn1,.btn2{
+				position: relative;
+				top: 33%;
+				width: 40px;
+				height: 40px;
+				background-color: #ccc;
+				display: block;
+				text-align: center;
+				font-size: 30px;
+				color: #ff5500;
+			}
+			.btn2{
+				left: 1160px;
+				top: 22%;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){
+				var i=0;
+				var timer;
+				$('.tp').eq(0).show().siblings().hide();
+				showpic();
+				$('li').hover(function(){
+					i = $(this).index();
+					show();
+					clearInterval();
+					},function(){
+						showpic();
+				});
+				$('.btn1').click(function(){
+					clearInterval(timer);
+					if(1==0) i=4;
+					i--;
+					show();
+				});
+				$('.btn2').click(function(){
+					clearInterval(timer);
+					i++;
+					if(i==4) i=0;
+					show();
+				});
+				function showpic(){
+					timer = setInterval(s,3000);
+				}
+				function show(){
+					$('.tp').eq(i).fadeIn(300).siblings().fadeOut();
+					$('li').eq(i).addClass('num').siblings().removeClass('num');
+				}
+				function s(){
+					i++;
+					if(i==4) i=0;
+					show();
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div>rj2306班35------轮播图效果</div>
+		<div id="rj2306">
+			<div id="pic">
+				<img src="images/01.jpg" class="tp">
+				<img src="images/02.jpg" class="tp">
+				<img src="images/03.jpg" class="tp">
+				<img src="images/04.jpg" class="tp">
+			</div>
+			<ul>
+				<li class="num">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+			<a href="#" class="btn1">&lt;</a>
+			<a href="#" class="btn2">&gt;</a>
+		</div>
+	</body>
+</html>

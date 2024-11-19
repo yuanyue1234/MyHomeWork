@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+				list-style: none;
+				text-decoration: none;
+			}
+			a{
+				color: beige;
+			}
+			#rj2306{
+				height: 30px;
+				background-color: #e60ceb;
+				font-family: "Arial","微软雅黑";
+			}
+			#rj2306 #nav{
+				height: 30px;
+				width: 1000px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#rj2306 #nav ul{
+				position: absolute;
+			}
+			#rj2306 #nav ul li.nav{
+				position: relative;
+				z-index: 999;
+				float: left;
+				margin-right: 30px;
+				line-height: 30px;
+				text-align: center;
+				min-width: 48px;
+				padding: 0 5px;
+			}
+			#rj2306 #nav ul li.nav a img{
+				padding-bottom: 5px;
+				padding-left: 5px;
+			}
+			#rj2306 #nav ul li.nav ul.list{
+				background: #ff78f2;
+			}
+			#rj2306 #nav ul li.nav .ul.list li{
+				border-bottom: 1px solid white;
+				font-size: 14px;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){
+				$('.nav').hover(function(){
+					$(this).find('.list').stop().slideDown(500);
+				},function(){
+					$(this).find('.list').stop().slideUp()(500);
+				}).mousemover(function(){
+					$(this).css('background','#ff78f2');
+				}).mouseleave(function(){
+					$(this).css('background','#e60ceb');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>rj2306班35------导航下拉菜单</div>
+		<div id="rj2306">
+			<div id="nav">
+				<ul>
+					<li class="nav"><a href="#">首页</a></li>
+					<li class="nav"><a href="#">幸福年贺节</a></li>
+					<li class="nav"><a href="#">精品直达站</a></li>
+					<li class="nav">
+						<a href="#">服装<img src="images/arrow.jpg" alt=""></a>
+						<ul class="list" style="width: 76px;">
+							<li><a href="#">韩流时尚</a></li>
+							<li><a href="#">日系森女</a></li>
+							<li><a href="#">英伦帅气</a></li>
+							<li><a href="#">欧美风尚</a></li>
+						</ul>
+					</li>
+					<li class="nav"><a href="#">运动</a></li>
+					<li class="nav"><a href="#">母婴</a></li>
+					<li class="nav">
+						<a href="#">鞋包<img src="images/arrow.jpg" alt=""></a>
+						<ul class="list" style="width: 48px;">
+							<li><a href="#">女鞋</a></li>
+							<li><a href="#">男鞋</a></li>
+							<li><a href="#">女包</a></li>
+							<li><a href="#">男包</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
