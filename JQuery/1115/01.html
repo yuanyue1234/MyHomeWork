@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306{
+				position: relative;
+				border-bottom: 5px solid black;
+				height: 610px;
+			}
+			.rj2306 div{
+				position: relative;
+				height: 100px;
+				width: 150px;
+				border-right: 2px solid black;
+				border-top: 2px solid black;
+				top: 100px;
+			}
+			#dv4{
+				left: 150px;
+			}
+			#dv3{
+				left: 300px;
+			}
+			#dv2{
+				left: 450px;
+			}
+			#dv1{
+				left: 600px;
+			}
+			.rj2306>img{
+				position: absolute;
+				top: 550px;
+				left: 760px;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){
+				//开始运动
+				$('button:eq(0)').click(function(){
+					$('.rj2306>img').animate({left:300},1000)
+								.animate({top:200},1000)
+								.animate({left:0},500)
+								.animate({top:0},500);
+				});
+				//停止运动
+				$('button:eq(1)').click(function(){
+					//$('.rj2306>img').stop(true,true);
+					$('.rj2306>img').finish();
+				});
+				//带延迟运动
+				$('button:eq(2)').click(function(){
+					$('.rj2306>img').animate({left:300},500)
+								.delay(800)
+								.animate({top:200},500)
+								.delay(500)
+								.animate({left:0},500)
+								.delay(800)
+								.animate({top:0},500);
+				});
+				//上阶梯
+				$('button:eq(3)').click(function(){
+					$('.rj2306>img').animate({top:450},500)
+								.animate({left:610},300)
+								.animate({top:348},500)
+								.animate({left:460},300)
+								.animate({top:246},500)
+								.animate({left:310},300)
+								.animate({top:144},500)
+								.animate({left:160},300)
+								.animate({top:42},500)
+								.animate({left:10},300);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>rj2306班35------自定义动画</div>
+		<div>
+			<button>开始运动</button>
+			<button>停止运动</button>
+			<button>带延迟运动</button>
+			<button>上阶梯</button>
+		</div>
+		<div class="rj2306">
+			<div id="dv5">5</div>
+			<div id="dv4">4</div>
+			<div id="dv3">3</div>
+			<div id="dv2">2</div>
+			<div id="dv1">1</div>
+			<img src="images/fish.jpg" alt="">
+		</div>
+	</body>
+</html>
