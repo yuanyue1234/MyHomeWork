@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306{
+				border: 1px solid red;
+			}
+			.rj2306 div{
+				width: 100px;
+				height: 200px;
+				border: 1px solid #000;
+			}
+			div img{
+				position: absolute;
+				width: 100px;
+				height: 200px;
+			}
+			div img:first-child{
+				/* display: none; */
+			}
+		</style>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('#btn1').click(function(){
+					$('img:last').fadeOut('fast',function(){
+						$('img:first').fadeIn('slow',function(){
+							
+							$('#btn1').prop('disabled','true');
+							$('#btn2').removeProp('disabled');
+						});
+					});
+				});
+				$('#btn2').click(function(){
+					$('img:first').fadeOut('fast',function(){
+						$('img:last').fadeIn('slow',function(){
+							$('#btn2').prop('disabled',true);
+							$('#btn1').removeProp('disabled');
+						});
+					});
+				});
+				$('#btn3').click(function(){
+					$('img:first').fadeToggle('fast',function(){
+						$('img:last').fadeToggle('slow',function(){
+							var flag =$('#btn2').prop('disabled');
+							if(flag){
+								$('#btn1').prop('disabled','true');
+								$('#btn2').removeProp('disabled');
+							}else{
+								$('#btn2').prop('disabled',true);
+								$('#btn1').removeProp('disabled');
+							}
+						});
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35号袁越------开灯关灯效果------</div>
+		<div class="rj2306">
+			<button id="btn1">1.开灯</button>
+			<button id="btn2" disabled>2.关灯</button>
+			<button id="btn3">3.开关</button><br>
+			<div>
+				<img src="images/on.png"/>
+				<img src="images/off.png">
+			</div>
+		</div>
+	</body>
+</html>

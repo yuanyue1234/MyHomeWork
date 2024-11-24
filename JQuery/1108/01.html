@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.rj2306{
+				border: 1px solid red;
+				height: 300px;
+				width: 500px;
+			}
+			.rj2306 div{
+				text-align: center;
+				line-height: 100px;
+				margin: 5px;
+			}
+		</style>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('#btnHide').click(function(){
+					$('#dv1').hide('slow');
+				});
+				$('#btnShow').click(function(){
+					$('#dv1').show(2000);
+				});
+				$('#btnToggle').click(function(){
+					$('#dv1').toggle('slow','linear');
+				});
+				$('#btn4').click(function(){
+					$('#dv1').show(2000,'linear',function(){
+						$('#dv1').css('border-radius','50%')
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越-----显示和隐藏动画效果--------</div>
+		<div class="rj2306">
+			<button id="btnHide">1.隐藏图形</button>
+			<button id="btnShow">2.显示图形</button>
+			<button id="btnToggle">3.切换显示/隐藏效果</button>
+			<button id="btn4">4.圆形效果显示</button><br>
+			<div style="width: 100px;height: 100px;background: #edbc80;" id="dv1">
+				图形
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{
+				font-size: 13px;
+				color: black;
+				line-height: 25px;
+			}
+			#register{
+				margin: 0 auto;
+				width: 550px;
+				clear: both;
+				border: 1px solid red;
+			}
+			#register dl dt{
+				width: 35%;
+				text-align: right;
+				float: left;
+				padding-right: 5px;
+			}
+			.inputs{
+				width: 150px;
+				height: 16px;
+				border: 1px solid #999999;
+				float: left;
+			}
+			.bold{
+				font-size: 18px;
+				text-align: center;
+				line-height: 35px;
+				height: 35px;
+			}
+			.rbl{
+				height: 25px;
+				color: white;
+				background-color: yellow;
+				padding: 3px 10px;
+				border-left: 1px solid #fff;
+				border-top: 1px solid #fff;
+				border-right: 1px solid #6a6a6a;
+				border-bottom: 1px solid #6a6a6a;
+				margin: 5px;
+				cursor: pointer;
+			}
+			.tishi{
+				display: inline-block;
+				text-align: center;
+				color: yellow;
+				clear: both;
+			}
+			#top{
+				background: blue;
+				color: orange;
+				font-size: 20px;
+				line-height: 100px;
+			}
+			#headerLeft{
+				width: 200px;
+				float: left;
+				height: 100px;
+			}
+			#headerRight{
+				width: 600px;
+				float: right;
+				font-size: 13px;
+			}
+			#headerRight a{
+				padding: 0 10px;
+				text-decoration: none;
+				color: blueviolet;
+			}
+			.footer{
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+			}
+			.footer a{
+				text-decoration: none;
+				color: #d32c47;
+			}
+		</style>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('#email').blur(checkemail);
+				$('#pwd').blur(checkPwd);
+				$('#repwd').blur(checkRepwd);
+				$('#user').blur(checkUser);
+				
+				$('#rj2306Form').submit(function(){
+					var flag = true;
+					if(!checkemail()) flag = false;
+					if(!checkPwd()) flag = false;
+					if(!checkRepwd()) flag = false;
+					if(!checkUser()) flag = false;
+					return flag;
+				})
+				
+				function checkemail(){
+					var $email = $('#email').val();
+					var $divemail = $('#divEmail');
+					$divemail.html("");
+					if($email==""){
+						$divemail.html("email不能为空");
+						return false;
+					}
+					if($email.indexOf("@")==-1){
+						$divemail.html("email格式不正确\n必须包含@");
+						return false;
+					}
+					if($email.indexOf(".")==-1){
+						$divemail.html("email格式不正确\n必须包含.");
+						return false;
+					}
+				}
+				
+				function checkPwd(){
+					var $pwd = $('#pwd').val();
+					var $divPwd = $('#divPwd');
+					$divPwd.html("");
+					if($pwd==""){
+						$divPwd.html("密码不能为空");
+						return false;
+					}
+					if($pwd.length<6){
+						$divPwd.html("密码必须至少包含6个字符");
+						return false;
+					}
+				}
+				
+				function checkRepwd(){
+					var $pwd = $('#pwd').val();
+					var $repwd = $('#repwd').val();
+					var $divRepwd = $('#divRepwd');
+					$divRepwd.html("");
+					if($pwd!=$repwd){
+						$divRepwd.html("两次输入的密码不一致");
+						return false;
+					}
+				}
+				
+				function checkUser(){
+					var $user = $('#user').val();
+					var $divUser = $('#divUser');
+					$divUser.html("");
+					if($user==""){
+						$divUser.html("姓名不能为空");
+						return false;
+					}
+					for(var i=0;i<$user.length;i++){
+						var z = $user.substring(i,i+1);
+						if(isNaN(z)==false){
+							$divUser.html("姓名不能包含数字");
+							return false;
+						}
+					}
+				}
+			})	
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越---表单验证特效---</div>
+		<div id="top">
+			<div id="headerLeft">常德-桃花源里的城市-</div>
+			<div id="headerRight">
+				<span><a href="#"> 注册</a></span>|
+				<span><a href="#"> 登录</a></span>|
+				<span><a href="#"> 帮助</a></span>
+			</div>
+		</div>
+		<div id="register">
+			<form method="post" name="rj2306Form" id="rj2306Form">
+				<h1 class="bold">注册京东会员</h1>
+				<dl>
+					<dt>您的email:</dt>
+					<dd><input type="text" id="email" class="inputs"/></dd>
+				</dl>
+				<div id="divEmail" class="tishi"></div>
+				<dl>
+					<dt>输入密码:</dt>
+					<dd><input type="password" id="pwd" class="inputs"/></dd>
+				</dl>
+				<div id="divPwd" class="tishi"></div>
+				<dl>
+					<dt>再输入一遍密码:</dt>
+					<dd><input type="password" id="repwd" class="inputs"/></dd>
+				</dl>
+				<div id="divRepwd" class="tishi"></div>
+				<dl>
+					<dt>您的姓名:</dt>
+					<dd><input type="text" id="user" class="inputs"/></dd>
+				</dl>
+				<div id="divUser" class="tishi"></div>
+				<dl>
+					<dt>性别:</dt>
+					<dd>
+						<input type="radio" name="sex" value="1" checked='checked'/>男
+						<input type="radio" name="sex" value="0"/>女
+					</dd>
+				</dl>
+				<dl>
+					<dt>出生日期:</dt>
+					<dd>
+						<select name="year"><option value="2004">2004</option></select>年
+						<select name="month"><option value="11">11</option></select>年
+						<select name="day"><option value="22">22</option></select>年
+					</dd>
+				</dl>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><input type="submit" name="btn" value="注册" class="rbl"/></dd>
+				</dl>
+			</form>
+		</div>
+		<div class="footer">
+			<span><a href="#">关于我们</a></span>|
+			<span><a href="#">联系方式</a></span>|
+			<span><a href="#">帮助中心</a></span>
+		</div>
+	</body>
+</html>

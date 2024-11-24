@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$('#btn1').click(function(){
+					$('#ad').slideDown(1000);
+				});
+				$('#btn2').click(function(){
+					$('#ad').slideUp(2000);
+				});
+				$('#btn3').click(function(){
+					$('#ad').slideToggle(1500);
+				});
+				$('#btn4').click(function(){
+					$('.wrap').slideDown(1500,function(){
+						setInterval(twinkle,500);
+					});
+				});
+				function twinkle(){
+					$('.starWrap img:even').toggle(10);
+					$('.starWrap img:odd').fadeToggle(300);
+				}
+			});
+		</script>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.rj2306{
+				margin: 0 auto;
+				width: 920px;
+				height: 450px;
+			}
+			.wrap{
+				display: none;
+			}
+			.starWrap{
+				position: absolute;
+				top: 200px;
+				background: pink;
+				width: 920px;
+				
+			}
+			.starWrap img{
+				position: absolute;
+				top: 20px;
+				left: 50px;
+				display: none;
+			}
+			.starWrap img:nth-child(2){
+				top: 50px;
+				left: 680px;
+				
+			}
+			.starWrap img:nth-child(3){
+				top: 80px;
+				left: 480px;
+				
+			}
+			.starWrap img:nth-child(4){
+				top: 180px;
+				left: 180px;
+				
+			}
+			.starWrap img:nth-child(5){
+				top: 180px;
+				left: 280px;
+				
+			}
+			.starWrap img:nth-child(2){
+				top: 0px;
+				left: 480px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越----上滑下滑效果</div>
+		<div>
+			<button id="btn1">1.下滑</button>
+			<button id="btn2">2.上滑</button>
+		</div>
+		<div id="ad" style="display: none;">
+			常德职业技术学院<br>
+			-----机电与信息工程系<br>
+			--------软件大专2306班<br>
+			--------------35袁越<br>
+		</div>
+		jQuery与Ajax
+		<div>软件大专2306班35袁越----2.星空效果-----</div>
+		<div>
+			<button id="btn4">星空展示</button>
+			<img src="images/night.jpg" width="920px" height="450px" class="wrap">
+			<div class="starWrap">
+				<img src="images/star.png" width="150">
+				<img src="images/star2.png" width="90">
+				<img src="images/star.png" width="150">
+				<img src="images/star2.png" width="90">
+				<img src="images/star.png" width="150">
+				<img src="images/star2.png" width="90">
+			</div>
+		</div>
+		
+	</body>
+</html>

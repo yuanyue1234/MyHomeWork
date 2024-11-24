@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+
+			body {
+				font-size: 13px;
+				color: black;
+				line-height: 25px;
+			}
+
+			#register {
+				margin: 0 auto;
+				width: 350px;
+				clear: both;
+				border: 1px solid red;
+			}
+
+			#register dl dt {
+				width: 35%;
+				text-align: right;
+				float: left;
+				padding-right: 5px;
+			}
+
+			.inputs {
+				width: 150px;
+				height: 16px;
+				border: 1px solid #999999;
+			}
+
+			.bold {
+				font-size: 18px;
+				text-align: center;
+				line-height: 35px;
+				height: 35px;
+			}
+
+			.rbl {
+				height: 25px;
+				color: white;
+				background-color: #d32c47;
+				padding: 3px 10px;
+				border-left: 1px solid #fff;
+				border-right: 1px solid #6a6a6a;
+				border-bottom: 1px solid #6a6a6a;
+				margin: 5px;
+				cursor: pointer;
+			}
+		</style>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function() {
+				$('#rj2306Form').submit(function() {
+					//1.对email进行基本验证
+					var email = $('#email').val();
+					var pwd = $('#pwd').val();
+					var repwwd = $('#repwd').val();
+					var user = $('#user').val();
+					//2.对密码进行基本验证
+					if (email == "") {
+						alert('email不能为空');
+						return false;
+					}
+					if (email.indexOf(('@') == -1)) {
+						alert('email格式不正确\n必须包含@');
+					}
+					if(email.indexOf('.')==-1){
+						alert('email格式不正确\n必须包含.')
+						return false;
+					}
+					//3.对重输密码进行验证
+
+					//4.对姓名进行验证
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越---表单基本验证---</div>
+		<div id="top">
+
+		</div>
+		<div id="register">
+			<form method="post" name="rj2306Form" id="rj2306Form">
+				<h1 class="bold">注册京东会员</h1>
+				<dl>
+					<dt>您的email:</dt>
+					<dd><input type="text" id="email" class="inputs"></dd>
+				</dl>
+				<dl>
+					<dt>输入密码：</dt>
+					<dd><input type="password" id="pwd" class="inputs"></dd>
+				</dl>
+				<dl>
+					<dt>再次输入密码：</dt>
+					<dd><input type="password" id="repwd" class="inputs"></dd>
+				</dl>
+				<dl>
+					<dt>您的姓名：</dt>
+					<dd><input type="text" id="user" class="inputs"></dd>
+				</dl>
+				<dl>
+					<dt>性别:</dt>
+					<dd>
+						<input type="radio" name="sex" value="1" checked='checked'>男
+						<input type="radio" name="sex" value="0">女
+					</dd>
+				</dl>
+				<dl>
+					<dt>出生日期：</dt>
+					<dd>
+						<select name="year">
+							<option value="2004">2004</option>
+						</select>年
+						<select name="monrh">
+							<option value="11">11</option>
+						</select>月
+						<select name="day">
+							<option value="22">22</option>
+						</select>日
+					</dd>
+				</dl>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><input type="submit" nane="btn" value="注册" class="rbl"></dd>
+				</dl>
+			</form>
+		</div>
+		<div></div>
+	</body>
+</html>

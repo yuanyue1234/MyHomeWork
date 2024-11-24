@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.rj2306{
+				border: 1px solid red;
+				width: 800px;
+				height: 600px;
+			}
+			.rj2306 div{
+				width: 100px;
+				height: 100px;
+				float: left;
+				text-align: center;
+				line-height: 100px;
+				margin: 5px;
+				position: relative;
+			}
+			.red{
+				background-color: red;
+				
+			}
+			
+			.green{
+				background-color: green;
+			}
+			.yellow{
+				background-color: yellow;
+			}
+			.orange{
+				background: orange;
+			}
+			
+			
+		</style>
+		<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		
+		<script>
+			$(function(){
+					var left1=0;
+					$('#btn1').click(function(){
+						if(left1>650){
+							left1=0;
+						}else{
+							left1+=50;
+						}
+						$('.red').css('left',left1+'px');
+					});
+					var top1=0;
+					$('#btn2').click(function(){
+						if(top1>450){
+							top1=0;
+						}else{
+							top1+=50;
+						}
+						$('.green').css('top',top1+'px');
+					});
+					var left2=$('.yellow').css('left');
+					left2=parseInt(left2);
+					$('#btn3').click(function(){
+						if(left2<-190){
+							left2=500;
+						}else{
+							left2-=50;
+						}
+						$('.yellow').css('left',left2+'px');
+					});
+					var top2=$('.orange').css('top');
+					$('#btn4').click(function(){
+						top2=parseInt(top2);
+						if(top2<50){
+							top2=500;
+						}else{
+							top1-=50;
+						}
+						$('.orange').css('top',top2+'px');
+					});
+				});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越</div>
+		<div class="btn">
+			<button id="btn1">1.移动红色方块</button>
+			<button id="btn2">2.移动绿色方块</button>
+			<button id="btn3">3.移动黄色方块</button>
+			<button id="btn4">4.移动橙色方块</button>
+		</div>
+		<div class="rj2306">
+			<div class="red">红色</div>
+			<div class="green">绿色</div>
+			<div class="yellow">黄色</div>
+			<div class="orange">橙色</div>
+		</div>
+	</body>
+</html>

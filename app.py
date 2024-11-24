@@ -9,7 +9,7 @@ app = Flask(__name__, static_url_path='/static', static_folder='static')
 CORS(app)
 
 # 配置日志
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 DATA_FILE = 'courses.json'
@@ -264,13 +264,218 @@ def serve_file(path):
     except Exception as e:
         logger.error(f"访问文件时出错: {str(e)}")
         return str(e), 500
+    
+def update_jquery_paths():
+    jquery_dir = 'jquery'  # Changed from 'JQuery' to 'jquery' for consistency
+    updated_files = []
+    
+    # Walk through all HTML files in jquery directory
+    for root, dirs, files in os.walk(jquery_dir):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                
+                # Read file content
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Check and update jQuery reference path
+                if '<script src="../../static/js/jquery-3.4.1.min.js"></script>' not in content:
+                    # Replace old jQuery references with new path
+                    replacements = [
+                        ('<script src="js/jquery-1.12.4.js"></script>', 
+                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
+                        ('<script src="../static/jquery-3.4.1.min.js"></script>', 
+                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
+                        # Add more patterns if needed
+                    ]
+                    
+                    new_content = content
+                    for old_path, new_path in replacements:
+                        if old_path in new_content:
+                            new_content = new_content.replace(old_path, new_path)
+                            updated_files.append(file_path)
+                    
+                    # If no existing jQuery reference found, add it after <head>
+                    if all(old_path not in content for old_path, _ in replacements):
+                        new_content = new_content.replace(
+                            '<head>',
+                            '<head>\n\t<script src="../../static/js/jquery-3.4.1.min.js"></script>'
+                        )
+                        updated_files.append(file_path)
+                    
+                    # Write back if content changed
+                    if new_content != content:
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
 
+    # Log results
+    if updated_files:
+        print('Updated jQuery reference paths in the following files:')
+        for file_path in sorted(set(updated_files)):  # Remove duplicates and sort
+            print(f'Updated: {file_path}')
+    else:
+        print('No files needed updating.')
+    jquery_dir = 'JQuery'
+    updated_files = []  # 用于存储更新的文件路径
+    
+    # 遍历JQuery目录下的所有HTML文件
+    for root, dirs, files in os.walk(jquery_dir):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                
+                # 读取文件内容
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # 检查是否已经有jQuery路径
+                if '<script src="../static/js/jquery-3.4.1.min.js"></script>' not in content:
+                    # 如果没有jQuery路径，添加正确的路径
+                    content = content.replace(
+                        '<head>',
+                        '<head>\n\t<script src="../static/js/jquery-3.4.1.min.js"></script>'
+                    )
+                    updated_files.append(file_path)  # 记录更新的文件路径
+                
+                # 替换旧的jQuery引用路径
+                new_content = content.replace(
+                    '<script src="js/jquery-1.12.4.js"></script>',
+                    '<script src="../static/jquery-3.4.1.min.js"></script>'
+                )
+                
+                # 如果内容有变化，写回文件
+                if new_content != content:
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+                    updated_files.append(file_path)  # 记录更新的文件路径
+
+    # 仅显示更新的文件路径
+    if updated_files:
+        print('替换不正常jQuery引用路径的文件路径：') 
+        for updated_file in updated_files:
+            print(f'Updated: {updated_file}')
+    else:
+        print('没有需要更新的文件。')
+def update_bootstrap_paths():
+    bootstrap_dir = 'Bootstrap'  # Bootstrap 目录
+    updated_files = []
+    
+    # 遍历 Bootstrap 目录下的所有 HTML 文件
+    for root, dirs, files in os.walk(bootstrap_dir):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                
+                # 读取文件内容
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                new_bootstrap_path = '../../static/bootstrap-5.3.3-dist/js/bootstrap.min.js'
+                new_script_tag = f'<script src="{new_bootstrap_path}"></script>'
+                
+                # 需要替换的可能的旧路径模式
+                old_patterns = [
+                    '<script src="js/bootstrap.min.js"></script>',
+                    '<script src="../js/bootstrap.min.js"></script>',
+                    '<script src="bootstrap/js/bootstrap.min.js"></script>',
+                    '<script src="../bootstrap/js/bootstrap.min.js"></script>',
+                    '<script src="dist/js/bootstrap.min.js"></script>',
+                    '<script src="bootstrap.min.js"></script>'
+                ]
+                
+                # 检查是否需要更新
+                needs_update = True
+                if new_script_tag in content:
+                    needs_update = False
+                
+                new_content = content
+                if needs_update:
+                    # 替换所有旧的 Bootstrap 引用
+                    for old_pattern in old_patterns:
+                        if old_pattern in new_content:
+                            new_content = new_content.replace(old_pattern, new_script_tag)
+                            updated_files.append(file_path)
+                    
+                    # 如果没有找到任何 Bootstrap 引用，在 </head> 标签前添加
+                    if new_content == content and all(pattern not in content for pattern in old_patterns):
+                        head_end_pos = new_content.find('</head>')
+                        if head_end_pos != -1:
+                            new_content = new_content[:head_end_pos] + f'\n\t{new_script_tag}\n' + new_content[head_end_pos:]
+                            updated_files.append(file_path)
+                
+                # 如果内容有变化，写回文件
+                if new_content != content:
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+
+    # 输出更新结果
+    if updated_files:
+        print('更新了以下文件的 Bootstrap 引用路径：')
+        for file_path in sorted(set(updated_files)):  # 去重并排序
+            print(f'已更新: {file_path}')
+    else:
+        print('没有需要更新的文件。')
+
+# 查看app.py是否正常正常运行
 @app.route('/health')
 def health_check():
     return jsonify({"status": "healthy"}), 200
 
 if __name__ == '__main__':
+    update_jquery_paths()  # 更新JQuery目录下的所有HTML文件的jQuery引用路径
+    update_bootstrap_paths()  # 更新 Bootstrap 路径
     # 启动时读取一次数据以初始化更新时间
     courses, _ = get_courses()
-    # app.run(debug=True)
     app.run(host='0.0.0.0', port=5000, debug=False)
+
+    jquery_dir = 'jquery'  # Changed from 'JQuery' to 'jquery' for consistency
+    updated_files = []
+    
+    # Walk through all HTML files in jquery directory
+    for root, dirs, files in os.walk(jquery_dir):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                
+                # Read file content
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Check and update jQuery reference path
+                if '<script src="../../static/js/jquery-3.4.1.min.js"></script>' not in content:
+                    # Replace old jQuery references with new path
+                    replacements = [
+                        ('<script src="js/jquery-1.12.4.js"></script>', 
+                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
+                        ('<script src="../static/jquery-3.4.1.min.js"></script>', 
+                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
+                        # Add more patterns if needed
+                    ]
+                    
+                    new_content = content
+                    for old_path, new_path in replacements:
+                        if old_path in new_content:
+                            new_content = new_content.replace(old_path, new_path)
+                            updated_files.append(file_path)
+                    
+                    # If no existing jQuery reference found, add it after <head>
+                    if all(old_path not in content for old_path, _ in replacements):
+                        new_content = new_content.replace(
+                            '<head>',
+                            '<head>\n\t<script src="../../static/js/jquery-3.4.1.min.js"></script>'
+                        )
+                        updated_files.append(file_path)
+                    
+                    # Write back if content changed
+                    if new_content != content:
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
+
+    # Log results
+    if updated_files:
+        print('Updated jQuery reference paths in the following files:')
+        for file_path in sorted(set(updated_files)):  # Remove duplicates and sort
+            print(f'Updated: {file_path}')
+    else:
+        print('No files needed updating.')
