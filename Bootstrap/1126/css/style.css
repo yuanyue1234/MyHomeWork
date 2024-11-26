@@ -1,0 +1,50 @@
+/* 添加简约风格的搜索栏样式 */
+form {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* 调整搜索栏与导航的间距 */
+}
+
+input.form-control {
+    border: 1px solid #fff; /* 白色边框 */
+    background-color: transparent; /* 透明背景 */
+    color: white; /* 输入文字颜色为白色 */
+    border-radius: 0; /* 去掉圆角 */
+    padding: 10px; /* 内边距 */
+}
+
+input.form-control::placeholder {
+    color: #888; /* 占位符颜色 */
+}
+
+button {
+    background-color: transparent; /* 透明背景 */
+    color: white; /* 按钮文字颜色 */
+    border: 1px solid #fff; /* 白色边框 */
+    border-radius: 0; /* 去掉圆角 */
+    padding: 10px 20px; /* 内边距 */
+    margin-left: 5px; /* 按钮与搜索框的间距 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+}
+
+button:hover {
+    background-color: #fff; /* 悬停时的背景色为白色 */
+    color: black; /* 悬停时文字颜色为黑色 */
+}
+
+/* 侧边栏按钮样式 */
+.sidebar-button {
+    
+    padding: 20px;
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 背景色过渡效果 */
+}
+
+.sidebar-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 悬停时的背景色 */
+}
+
+.carousel-item.active .sidebar-button[data-bs-slide-to="0"] {
+    background-color: white; /* 选中项背景色 */
+    color: black; /* 选中项文字颜色 */
+}
