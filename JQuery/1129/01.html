@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="../../static/js/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{				/*1.所以元素样式*/
+				padding: 0px;
+				margin: 0px;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			#rj2306{    /*2.整体容器样式*/
+				width: 625px;
+				margin: 0 auto;
+				border: 1px solid red;
+			}
+			.hr_1{			/*3.表单的标题样式*/
+				font-size: 14px;
+				color: #3275c3;
+				height: 35px;
+				padding-left: 12px;
+				margin-bottom: 15px;
+				border-bottom: 2px solid #3275c3;
+				margin-top: 10px;
+			}
+			#rj2306 dl{		/*4.表单中每一行的样式*/
+				clear: both;
+				height: 30px;
+			}
+			#rj2306 dl dt{	/*5.每一行的数据说明*/
+				text-align: center;
+				width: 80px;
+				height: 25px;
+				padding-left: 5px;
+				float: left;
+			}
+			#rj2306 dl dd{		/*每一行输入与提示*/
+				float: left;
+			}
+			#rj2306 dl dd div{		/*7.每一行的验证提示信息样式*/
+				display: inline;
+				padding-left:5px ;
+				color: red;
+			}
+			#rj2306 dl dd input:not(.btn){	/*8.每一行的输入框样式*/
+				width: 150px;
+				height: 18px;
+				border: 1px solid #0066FF;
+			}
+		</style>
+		<script src="static/js/jquery-1.12.4.js"></script>
+		<script>
+			$(function(){  //0.$()执行默认
+				//1.验证【用户名】 【用户名】输入框失去焦点事件
+				$('#user').blur(function(){
+					var user = $(this).val();  //1.1获取当前输入框的内容
+					var tishi = $('#user_prompt'); //1.2获取提示框div元素
+					var reg = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;//1.3正则表达式
+					if(reg.test(user)==false){			//1.4没有通过验证
+						tishi.html('用户名输入不正确');
+						return false;
+					}
+					tishi.html("");						//1.5验证通过，清空提示
+					return true;						//1.6返回true
+				});
+				//2.验证密码
+				$('#mima').blur(function(){
+					var mima = $(this).val();			//2.1获取【密码】输入框值
+					var tishi = $('#mima_prompt');      //2.2获取【密码】提示框div 元素
+					var reg = /^[a-zA-Z0-9]{4,10}$/; //2.3正则表达式
+					if(reg.test(mima)==false){//2.4如果验证不通过
+						tishi.html("密码不能含有非法字符，长度为4-10位");
+						return false;
+					}
+					tishi.html("");//2.5验证通过，清空提示
+					return true;
+				});
+				//3.验证确认密码
+				$('#mima2').blur(function(){
+					var mima = $('#mima').val();//3.1获取【密码】输入框值
+					var mima2 = $(this).val();//3.2获取【确认密码】输入框值
+					var tishi = $('#mima2_prompt');//3.3获取【确认密码】提示框div 元素
+					if(mima!=mima2){//3.4如果验证不通过
+						tishi.html("两次输入的密码不一致");
+						return false;
+					}
+					tishi.html(); //3.5验证通过，清空提示
+					return true;  //3.6返回true
+				});
+				//4.验证电子邮箱
+				$('#email').blur(function(){
+					var email = $(this).val();//4.1获取【电子密码】输入框值
+					var tishi = $('#email_prompt');//4.2获取【电子密码】提示框div 元素
+					var reg = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;//4.3如果验证不通过
+					if(reg.test(email)==false){   //4.4如果验证不通过
+						tishi.html("email格式不正确,如18334592@qq.com");
+						return false;
+					}
+					tishi.html("");//4.5验证通过，清空提示
+					return true;//4.6返回true
+				});
+				//5.验证手机号码
+				$('#tel').blur(function(){
+					var tel = $(this).val();  //5.1获取【手机号码】输入框值
+					var tishi = $('#tel_prompt'); //5.2获取【手机号码】提示框div 元素
+					var reg = /^1\d{10}$/; //5.3手机号码正则表达式
+					if(reg.test(tel)==false){ //5.4如果验证不通过
+						tishi.html("手机号码不正确，请重新输入");
+						return false;
+					}
+					tishi.html("");//5.5验证通过，清空提示
+					return true;//5.6返回true
+				})
+				//6.验证邮政编码
+				$('#post').blur(function(){
+					var post = $(this).val();
+					var tishi = $('#post_prompt');
+					var reg = /^\d{6}$/;    //6.3邮政编码正则表达式
+					if(reg.test(post)==false){
+						tishi.html("邮政编码不正确，请重新输入");
+						return false;
+					}
+					tishi.html("");
+					return true;
+				});
+				//7.验证生日
+				$('#birth').blur(function(){
+					var birth  = $(this).val();
+					var tishi = $('#birth_prompt');
+					var reg = /^((19\d{2})|(200\d)|(201[0-6]))-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2]\d|3[0-1])$/;
+					if(reg.test(birth)==false){
+						tishi.html("生日格式不正确，应如1974-1-1或2005-11-29");
+						return false;
+					}
+					tishi.html("");
+					return true;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>软件大专2306班35袁越----正则表达式方式验证表单内容----</div>
+		<div>
+			<img src="static/images/logo.jpg" alt="" />
+			<img src="static/images/banner.jpg" alt="" />
+			<div>顶部菜单</div>
+		</div>
+		<section id="rj2306">
+			<h1 class="hr_1">新用户注册</h1>
+			<form action="" method="post" name="rj2306form">
+				<dl>
+					<dt>用户名：</dt>
+					<dd>
+						<input type="text" id="user"/>
+						<div id="user_prompt">用户名由英文字母和数字组成，长度为4-16位字符，以字母开头</div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>密码：</dt>
+					<dd>
+						<input type="password" id="mima"/>
+						<div id="mima_prompt">密码由英文字母和数字组成，长度4-10位字符</div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>确认密码：</dt>
+					<dd>
+						<input type="password" id="mima2"/>
+						<div id="mima2_prompt"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>电子邮箱：</dt>
+					<dd>
+						<input type="text" id="email"/>
+						<div id="email_prompt"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>手机号码：</dt>
+					<dd>
+						<input type="text"  id="tel"/>
+						<div id="tel_prompt"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>邮政编码：</dt>
+					<dd>
+						<input type="text" id="post"/>
+						<div id="post_prompt"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>生日：</dt>
+					<dd>
+						<input type="text" id="birth"/>
+						<div id="birth_prompt"></div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd>
+						<input type="image"  src="static/images/register.jpg" class="btn"/>
+					</dd>
+				</dl>
+			</form>
+		</section>
+		<div>
+			底部版权信息：软件大专2306班21号廖阳
+		</div>
+	</body>
+</html>

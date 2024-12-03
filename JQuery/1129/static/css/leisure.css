@@ -1,0 +1,103 @@
+*{padding:0; margin:0;}
+body{
+    font-size:13px;
+    color:#000;
+    line-height:25px;
+}
+.main{
+    float:none;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    clear:both;
+}
+#header{
+    /* background-image: url(../images/bg.gif); */
+    background-repeat: repeat-x;
+    height: 36px;
+}
+#headerLeft{width:200px;
+    float:left;
+    margin-top:-10px; 
+}
+#headerRight{width:160px;
+    float:right;
+    color:#000;
+}
+#center{ 
+    text-align:center;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    width:100%;
+
+}
+.register{margin: 0 auto; width: 350px;  clear: both;}
+.register dl dt{width:35%;
+    text-align:right; 
+    float: left;
+}
+.register dl dd img{vertical-align: middle;}
+
+.bg{
+    background-image: url(../images/dl_l_bg.gif);
+    background-repeat: repeat-y;
+}
+.inputs{width:150px;
+    height:16px;
+    border:solid 1px #666666;
+
+}
+.register dl dd span{
+    color: #F00;
+    text-align: center;
+    width: 100%;
+    display: inherit;
+}
+.bold{
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    line-height:35px;
+    height:35px;
+}
+.rb1{
+    height:25px;
+    color:#fff;
+    font-size:13px;
+    background:#d32c47;
+    padding:3px 10px;
+    border-left:1px solid #fff;
+    border-top:1px solid #fff;
+    border-right:1px solid #6a6a6a;
+    border-bottom:1px solid #6a6a6a;
+    cursor:pointer;
+    margin:5px;
+}
+.register{width: 350px; margin: 5px auto; border: 1px #cccccc solid; border-radius: 5px; background: #efefef; clear: both;}
+.register li{height: 35px; line-height: 35px;    text-align: center;}
+.register span {
+    display: inline-block;
+    /* width: 41px; */
+    text-align: right;
+}
+.register li:last-of-type{padding-left: 90px;}
+
+
+
+#footer{text-align:center;
+    color:#333;
+    line-height:35px;
+}
+#footer a{
+    color:#333;
+    text-decoration:underline;
+}
+#footer hover{
+    color:#333;
+    text-decoration:none;
+}
+#fileImgHeader,#imgHeader{ margin-right: 5px;
+    float: left;}

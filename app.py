@@ -424,58 +424,7 @@ def health_check():
 
 if __name__ == '__main__':
     update_jquery_paths()  # 更新JQuery目录下的所有HTML文件的jQuery引用路径
-    update_bootstrap_paths()  # 更新 Bootstrap 路径
+    # update_bootstrap_paths()  # 更新 Bootstrap 路径
     # 启动时读取一次数据以初始化更新时间
     courses, _ = get_courses()
     app.run(host='0.0.0.0', port=5000, debug=False)
-
-    jquery_dir = 'jquery'  # Changed from 'JQuery' to 'jquery' for consistency
-    updated_files = []
-    
-    # Walk through all HTML files in jquery directory
-    for root, dirs, files in os.walk(jquery_dir):
-        for file in files:
-            if file.endswith('.html'):
-                file_path = os.path.join(root, file)
-                
-                # Read file content
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                
-                # Check and update jQuery reference path
-                if '<script src="../../static/js/jquery-3.4.1.min.js"></script>' not in content:
-                    # Replace old jQuery references with new path
-                    replacements = [
-                        ('<script src="js/jquery-1.12.4.js"></script>', 
-                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
-                        ('<script src="../static/jquery-3.4.1.min.js"></script>', 
-                         '<script src="../../static/js/jquery-3.4.1.min.js"></script>'),
-                        # Add more patterns if needed
-                    ]
-                    
-                    new_content = content
-                    for old_path, new_path in replacements:
-                        if old_path in new_content:
-                            new_content = new_content.replace(old_path, new_path)
-                            updated_files.append(file_path)
-                    
-                    # If no existing jQuery reference found, add it after <head>
-                    if all(old_path not in content for old_path, _ in replacements):
-                        new_content = new_content.replace(
-                            '<head>',
-                            '<head>\n\t<script src="../../static/js/jquery-3.4.1.min.js"></script>'
-                        )
-                        updated_files.append(file_path)
-                    
-                    # Write back if content changed
-                    if new_content != content:
-                        with open(file_path, 'w', encoding='utf-8') as f:
-                            f.write(new_content)
-
-    # Log results
-    if updated_files:
-        print('Updated jQuery reference paths in the following files:')
-        for file_path in sorted(set(updated_files)):  # Remove duplicates and sort
-            print(f'Updated: {file_path}')
-    else:
-        print('No files needed updating.')
